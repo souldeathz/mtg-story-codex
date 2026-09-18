@@ -134,7 +134,7 @@ img{max-width:100%;}
   font-size:11.5px;color:var(--accent);background:var(--accent-soft);
   border-radius:5px;padding:3px 9px;
 }
-.set-icon{width:16px;height:16px;opacity:.8;}
+.set-icon{width:20px;height:20px;opacity:.8;margin-right:-2px;}
 .date-note{margin:-8px 0 20px;font-size:12.5px;color:var(--accent);font-weight:600;}
 
 /* body copy */
@@ -254,6 +254,13 @@ img{max-width:100%;}
 .char-card{overflow:hidden;}
 .char-card-img{
   aspect-ratio:5/2;object-fit:cover;object-position:top center;
+  border-radius:var(--radius-s) var(--radius-s) 0 0;margin:-18px -20px 12px;
+  display:block;width:calc(100% + 40px);max-width:none;background:var(--panel-2);
+}
+
+/* ============ plane card images (planes.html) ============ */
+.plane-card-img{
+  aspect-ratio:5/2;object-fit:cover;object-position:center;
   border-radius:var(--radius-s) var(--radius-s) 0 0;margin:-18px -20px 12px;
   display:block;width:calc(100% + 40px);max-width:none;background:var(--panel-2);
 }

@@ -4,13 +4,48 @@
   var current = window.CODEX_CHAPTER || null;
 
   var SHORTCUTS = [
-    { href: "rules.html", label: "กฎกติกา MTG", icon: "rules" },
     { href: "characters.html", label: "คู่มือตัวละคร", icon: "chars" },
     { href: "glossary.html", label: "อภิธานศัพท์", icon: "glossary" }
   ];
 
-  function chevronSvg() {
-    return '<svg class="vol-head-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 6 15 12 9 18"></polyline></svg>';
+  var RULES_TIERS = [
+    {
+      label: "พื้นฐานต้องรู้ก่อนเล่น",
+      items: [
+        { id: "basics", label: "พื้นฐานเกม" },
+        { id: "turn", label: "โครงสร้างเทิร์น" },
+        { id: "stack", label: "Stack และ Priority" },
+        { id: "combat", label: "การต่อสู้ (Combat)" },
+        { id: "sba", label: "State-Based Actions" }
+      ]
+    },
+    {
+      label: "กลไกที่เจอบ่อย",
+      items: [
+        { id: "cardtypes", label: "ประเภทการ์ด" },
+        { id: "mana", label: "มานาและต้นทุน" },
+        { id: "triggered", label: "Triggered Abilities" },
+        { id: "replacement", label: "Replacement Effects" },
+        { id: "tokens", label: "กฎ Token" },
+        { id: "keywords", label: "อภิธานศัพท์คีย์เวิร์ด" }
+      ]
+    },
+    {
+      label: "กฎฟอร์แมต & ขั้นสูง",
+      items: [
+        { id: "commander", label: "กฎเฉพาะ Commander (EDH)" },
+        { id: "graveyard", label: "Graveyard และ Exile" },
+        { id: "copy", label: "Copy Effects" },
+        { id: "edge-cases", label: "ปฏิสัมพันธ์ & กรณีพิเศษ" },
+        { id: "orzhov", label: "กลไกสี Orzhov" },
+        { id: "casting-cost", label: "ต้นทุนร่ายสเปลล์ & Stack" },
+        { id: "aristocrats-case-study", label: "กรณีศึกษา Aristocrats" }
+      ]
+    }
+  ];
+
+  function chevronSvg(cls) {
+    return '<svg class="' + (cls || "vol-head-chevron") + '" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 6 15 12 9 18"></polyline></svg>';
   }
 
   function shortcutIcon(name) {
@@ -30,11 +65,44 @@
     return last && last.length ? last : "index.html";
   }
 
+  function currentHash() {
+    return (window.location && window.location.hash) ? window.location.hash.replace("#", "") : "";
+  }
+
+  function renderRulesGroup(isOnRulesPage, activeId) {
+    var open = isOnRulesPage;
+    var html =
+      '<div class="vol-group rules-group' + (open ? " is-open" : "") + (isOnRulesPage ? " is-active" : "") + '" data-group="rules">' +
+      '<button class="vol-head" type="button" aria-expanded="' + (open ? "true" : "false") + '">' +
+      '<span class="vol-head-left">' + chevronSvg() +
+      '<span class="vol-head-label">' + shortcutIcon("rules") + '<span>กฎกติกา MTG</span></span></span>' +
+      '<span class="vol-head-count">18 ข้อ</span>' +
+      "</button>" +
+      '<div class="vol-chapters rules-chapters"' + (open ? "" : " hidden") + ">";
+
+    RULES_TIERS.forEach(function (tier) {
+      html += '<p class="rules-tier-label">' + escapeHtml(tier.label) + "</p>";
+      tier.items.forEach(function (it) {
+        var isActive = isOnRulesPage && it.id === activeId;
+        html +=
+          '<a class="ch-row' + (isActive ? " is-active" : "") + '" href="' + base + "rules.html#" + it.id + '"' +
+          (isActive ? ' aria-current="page"' : "") + ">" + escapeHtml(it.label) + "</a>";
+      });
+    });
+
+    html += "</div></div>";
+    return html;
+  }
+
   function renderShortcuts() {
     var anchor = document.getElementById("sidebar-nav");
     if (!anchor || !anchor.parentNode) return;
     var file = currentFile();
+    var isOnRulesPage = file === "rules.html";
+    var activeId = isOnRulesPage ? currentHash() : "";
+
     var html = '<div class="sidebar-shortcuts">';
+    html += renderRulesGroup(isOnRulesPage, activeId);
     SHORTCUTS.forEach(function (s) {
       var isActive = file === s.href;
       html +=
@@ -44,6 +112,18 @@
     });
     html += "</div>";
     anchor.insertAdjacentHTML("beforebegin", html);
+
+    var rulesHead = document.querySelector(".rules-group > .vol-head");
+    if (rulesHead) {
+      rulesHead.addEventListener("click", function () {
+        var group = rulesHead.closest(".vol-group");
+        var chapters = group.querySelector(".vol-chapters");
+        var isOpen = group.classList.toggle("is-open");
+        rulesHead.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        if (isOpen) chapters.removeAttribute("hidden");
+        else chapters.setAttribute("hidden", "");
+      });
+    }
   }
 
   function renderSidebar(filterText) {

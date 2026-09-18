@@ -470,16 +470,39 @@ ENDING PHASE (เฟสจบเทิร์น)
           <li>Mana ability (ผลิตมานา) ไม่ใช้ stack — resolve ทันที</li>
         </ul>
         <h3>15.5 ระบบ Layer (สำหรับเอฟเฟกต์ต่อเนื่อง)</h3>
-        <p>เอฟเฟกต์ถูกประยุกต์ใช้ตามลำดับนี้:</p>
-        <ol>
-          <li>เอฟเฟกต์การก็อปปี้</li>
-          <li>เอฟเฟกต์เปลี่ยนผู้ควบคุม</li>
-          <li>เอฟเฟกต์เปลี่ยนข้อความ</li>
-          <li>เอฟเฟกต์เปลี่ยนประเภท</li>
-          <li>เอฟเฟกต์เปลี่ยนสี</li>
-          <li>เอฟเฟกต์เพิ่ม/ลบความสามารถ</li>
-          <li>เอฟเฟกต์เปลี่ยนพลัง/ความอึด (ตามลำดับ dependency แล้วตามลำดับเวลา)</li>
-        </ol>
+        <p>เมื่อถาวรหนึ่งใบถูกแก้ไขคุณสมบัติโดยเอฟเฟกต์ต่อเนื่อง (continuous effect) หลายอย่างพร้อมกัน เกมจะไม่ใช้ "ลำดับเวลา" ในการคำนวณอย่างเดียว แต่จะไล่คำนวณตาม <strong>7 Layer</strong> ตามลำดับตายตัวนี้ก่อนเสมอ — ภายใน Layer เดียวกันจึงค่อยเรียงตาม timestamp (การ์ดที่มีผลก่อนคำนวณก่อน) หรือตาม dependency:</p>
+        <table>
+          <thead><tr><th>Layer</th><th>ผลที่เปลี่ยน</th><th>ตัวอย่างการ์ด/เอฟเฟกต์</th></tr></thead>
+          <tbody>
+            <tr><td><strong>1</strong></td><td>เอฟเฟกต์การก็อปปี้ (Copy)</td><td>Clone เข้าสนามเป็นสำเนาของครีเจอร์อื่น — ก็อปชื่อ, ต้นทุน, ประเภท, P/T, ข้อความทั้งหมด</td></tr>
+            <tr><td><strong>2</strong></td><td>เอฟเฟกต์เปลี่ยนผู้ควบคุม (Control)</td><td>Mind Control — เปลี่ยนผู้ควบคุมถาวรเป้าหมายมาเป็นของตน</td></tr>
+            <tr><td><strong>3</strong></td><td>เอฟเฟกต์เปลี่ยนข้อความ (Text)</td><td>Mind Bend — เปลี่ยนคำในข้อความกฎ เช่นเปลี่ยนชื่อสีที่การ์ดอ้างถึง</td></tr>
+            <tr><td><strong>4</strong></td><td>เอฟเฟกต์เปลี่ยนประเภท (Type)</td><td>Song of the Dryads (ถาวรที่ถูกผูกกลายเป็น Forest เพิ่ม) · Blood Moon (nonbasic land ทุกใบกลายเป็น Mountain)</td></tr>
+            <tr><td><strong>5</strong></td><td>เอฟเฟกต์เปลี่ยนสี (Color)</td><td>Painter's Servant — ถาวรและสเปลล์ทุกใบเป็นสีที่เลือกเพิ่มเข้าไป</td></tr>
+            <tr><td><strong>6</strong></td><td>เอฟเฟกต์เพิ่ม/ลบความสามารถ (Ability)</td><td>Rancor (มอบ Trample) · Humility / Silence (ลบความสามารถทั้งหมด)</td></tr>
+            <tr><td><strong>7</strong></td><td>เอฟเฟกต์เปลี่ยนพลัง/ความอึด (P/T) — แบ่งเป็น 4 sub-layer</td><td>ดูตารางย่อย 7a–7d ด้านล่าง</td></tr>
+          </tbody>
+        </table>
+        <table>
+          <thead><tr><th>Sub-layer 7</th><th>ผลที่เปลี่ยน</th><th>ตัวอย่าง</th></tr></thead>
+          <tbody>
+            <tr><td><strong>7a</strong></td><td>Characteristic-Defining Ability (CDA) — P/T ที่นิยามจากคุณสมบัติการ์ดเอง</td><td>Tarmogoyf ("*/1+*" อิงจากประเภทการ์ดใน graveyard ทุกใบ)</td></tr>
+            <tr><td><strong>7b</strong></td><td>เอฟเฟกต์ที่ "กำหนดค่า" P/T ตรงๆ (set to)</td><td>Ovinize ("target creature becomes a 0/1")</td></tr>
+            <tr><td><strong>7c</strong></td><td>เอฟเฟกต์ที่ "บวก/ลบ" P/T (รวมเคาน์เตอร์ +1/+1)</td><td>Giant Growth (+3/+3) · Glorious Anthem (+1/+1 ให้ครีเจอร์ของตน) · เคาน์เตอร์ +1/+1</td></tr>
+            <tr><td><strong>7d</strong></td><td>เอฟเฟกต์ "สลับ" พลัง/ความอึด</td><td>เอฟเฟกต์ประเภท "switch power and toughness until end of turn"</td></tr>
+          </tbody>
+        </table>
+
+        <div class="rule-note">
+          <strong>ตัวอย่างการคำนวณจริง:</strong> Grizzly Bears (2/2) ตัวหนึ่งถูกเอฟเฟกต์ 3 อย่างนี้ส่งผลพร้อมกัน — (ก) โดน <em>Ovinize</em> เล็ง กลายเป็น "0/1" (Layer 7b) (ข) ควบคุมโดยผู้เล่นที่มี <em>Glorious Anthem</em> ในสนาม ให้ +1/+1 กับครีเจอร์ของตน (Layer 7c) (ค) ควบคุมโดยผู้เล่นที่มี <em>Adaptive Automaton</em> ประกาศ type เป็น Bear ให้ +1/+1 กับ Bear (Layer 7c เช่นกัน)
+          <br><br>
+          วิธีคิด: เกมไล่คำนวณ Layer 7b ก่อน (Ovinize กำหนดค่าฐานเป็น 0/1) แล้วจึงไป Layer 7c ซึ่งมี 2 เอฟเฟกต์เรียงตาม timestamp บวกสะสมกัน (+1/+1 และ +1/+1) → ผลลัพธ์สุดท้ายคือ <strong>0/1 + 1/1 + 1/1 = 2/3</strong> — ไม่ใช่ "2/2 ปกติ" และไม่ใช่ "0/1 เฉยๆ" เพราะ Layer 7b ทำงานก่อน Layer 7c เสมอ ไม่ว่า Ovinize จะถูกร่ายก่อนหรือหลังการ์ดอีกสองใบ
+        </div>
+
+        <div class="rule-note">
+          <strong>ตัวอย่างข้าม Layer:</strong> ถ้าครีเจอร์ตัวเดียวกันโดน <em>Turn to Frog</em> ("target creature loses all abilities and becomes a Blue Frog with base power and toughness 1/1") ด้วย — Turn to Frog เปลี่ยนประเภทย่อยเป็น Frog (Layer 4), เปลี่ยนสีเป็นน้ำเงิน (Layer 5), ลบความสามารถทั้งหมด (Layer 6) และกำหนดฐาน P/T เป็น 1/1 (Layer 7b) ทั้งหมดนี้มาจากการ์ดใบเดียวแต่ถูก "แยก" ไปคำนวณคนละ Layer ตามชนิดของผล ไม่ใช่คำนวณรวดเดียวตามข้อความบนการ์ด — ถ้ามี Glorious Anthem อยู่ด้วย ผลลัพธ์จะยังเป็น 1/1 + 1/1 = 2/2 เพราะ +1/+1 อยู่ Layer 7c ซึ่งมาทีหลัง Layer 7b เสมอ
+        </div>
+
         <h3>15.6 Double-Faced Card (DFC)</h3>
         <ul>
           <li>Transforming DFC: มีด้านกลางวัน/กลางคืน; การพลิกด้านเกิดจากทริกเกอร์หรือแอคทิเวต</li>
@@ -512,6 +535,62 @@ ENDING PHASE (เฟสจบเทิร์น)
           <li><strong>Aristocrats</strong>: ครีเจอร์/เวทมนตร์ที่ให้รางวัลเมื่อครีเจอร์อื่นตาย (เช่น Blood Artist, Zulaport Cutthroat)</li>
           <li><strong>Sac Outlets (ช่องทางสังเวย)</strong>: ครีเจอร์หรือ artifact ที่ให้สังเวยครีเจอร์ได้อย่างอิสระ (เช่น Viscera Seer, Ashnod's Altar)</li>
           <li><strong>Recursive Creatures (ครีเจอร์ที่ฟื้นคืนได้)</strong>: ครีเจอร์ที่กลับมาจาก graveyard ได้ (เช่น Reassembling Skeleton)</li>
+        </ul>
+      </section>
+
+      <section class="rule-section" id="casting-cost">
+        <h2>17. ต้นทุนตอนร่ายสเปลล์ กับการขึ้น Stack (CR 601)</h2>
+        <h3>17.1 ลำดับขั้นตอนการร่ายสเปลล์ (CR 601.2a–i)</h3>
+        <p class="rule-note">การร่ายสเปลล์ไม่ได้เกิดขึ้นทันที แต่เป็นกระบวนการหลายขั้นตอนที่เรียงลำดับตายตัว</p>
+        <ol class="rule-steps">
+          <li><strong>ย้ายไป Stack</strong> — การ์ดออกจากมือ (หรือโซนอื่น) ไปอยู่บน stack ก่อน ตอนนี้ถือว่า "กำลังถูกร่าย" แล้ว</li>
+          <li><strong>เลือกโหมด</strong> — ถ้าเป็นสเปลล์แบบ modal (เช่น "เลือก 1 อย่าง")</li>
+          <li><strong>เลือกเป้าหมาย (target)</strong></li>
+          <li><strong>แบ่งเอฟเฟกต์/ดาเมจ</strong> — ถ้ามีให้แบ่ง (เช่นสเปลล์ X ที่แบ่งดาเมจได้)</li>
+          <li><strong>กำหนดต้นทุนรวม</strong> — บวกต้นทุนพื้นฐาน + ต้นทุนเพิ่มเติม (additional cost) + ตัวเพิ่มต้นทุน (cost increase) แล้วหักตัวลดต้นทุน (cost reduction)</li>
+          <li><strong>ล็อกต้นทุน</strong> — ต้นทุนที่คำนวณได้ ณ จุดนี้ถูก "ล็อก" ไว้ — ต่อให้มีเอฟเฟกต์มาเปลี่ยนต้นทุนทีหลัง ก็ไม่กระทบสเปลล์ที่ร่ายไปแล้ว</li>
+          <li><strong>เปิดใช้ mana ability</strong> — ผู้เล่นแตะแลนด์/ใช้ mana rock เพื่อผลิตมานา (mana ability <strong>ไม่ขึ้น stack</strong> — resolve ทันที)</li>
+          <li><strong>จ่ายต้นทุน</strong> — จ่ายมานาและต้นทุนอื่น ๆ ทั้งหมด (รวมถึงการสังเวย/ทิ้งการ์ดถ้าเป็นต้นทุนของสเปลล์นั้น)</li>
+          <li><strong>ร่ายสำเร็จ</strong> — สเปลล์กลายเป็น "cast" อย่างสมบูรณ์ ความสามารถใด ๆ ที่ทริกเกอร์ "เมื่อคุณร่ายสเปลล์" (เช่น Storm, Magecraft) จะทริกเกอร์ ณ จุดนี้</li>
+        </ol>
+        <p class="rule-note"><strong>จุดสำคัญ:</strong> ขั้นตอน 1-6 เกิดขึ้นโดยยังไม่มีการจ่ายมานาเลย ต้นทุนถูกคำนวณและ "แช่แข็ง" ไว้ก่อนจ่ายจริงเสมอ</p>
+
+        <h3>17.2 Activated Ability ต่างจากการร่ายสเปลล์ (CR 602)</h3>
+        <ul>
+          <li>ความสามารถที่ต้องเปิดใช้ (เช่น สังเวยครีเจอร์เพื่อสแครย 1 ของ Viscera Seer) ใช้กระบวนการคล้ายกันแต่ไม่ใช่ CR 601 — คือ CR 602 แทน</li>
+          <li><strong>ต้นทุนของ activated ability (เช่นการสังเวย) ถูกจ่ายไปแล้ว ก่อนที่ตัวความสามารถจะขึ้น stack</strong></li>
+          <li>ดังนั้นครีเจอร์ที่ถูกสังเวยจะตาย "ทันที" ตั้งแต่ตอนจ่ายต้นทุน ไม่ต้องรอให้ความสามารถ resolve</li>
+          <li>นี่คือกลไกที่ทำให้ทริกเกอร์ "whenever a creature dies" ทำงานได้ทันทีที่กดสังเวย ก่อนที่ผลลัพธ์ (สแครย 1) จะ resolve ด้วยซ้ำ</li>
+        </ul>
+      </section>
+
+      <section class="rule-section" id="aristocrats-case-study">
+        <h2>18. กรณีศึกษา Aristocrats: Teysa Karlov + Delney + Bastion of Remembrance</h2>
+        <p class="rule-note">Oracle text จริงของการ์ดที่ใช้ในกรณีศึกษานี้</p>
+        <table>
+          <thead><tr><th>การ์ด</th><th>ต้นทุน</th><th>ข้อความ</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Teysa Karlov</strong><br>2/4</td><td>{1}{W}{B}</td><td>ถ้าการตายของครีเจอร์ทำให้ความสามารถทริกเกอร์ของถาวรที่คุณควบคุมทำงาน ความสามารถนั้นทริกเกอร์เพิ่มอีกครั้ง โทเค็นครีเจอร์ที่คุณควบคุมมี vigilance และ lifelink</td></tr>
+            <tr><td><strong>Delney, Streetwise Lookout</strong><br>2/2</td><td>{2}{W}</td><td>ครีเจอร์ที่คุณควบคุมพลังโจมตี 2 หรือน้อยกว่า บล็อกไม่ได้ด้วยครีเจอร์พลังโจมตี 3+ ถ้าความสามารถทริกเกอร์ของครีเจอร์ที่คุณควบคุมซึ่งมีพลังโจมตี 2 หรือน้อยกว่าทำงาน ความสามารถนั้นทริกเกอร์เพิ่มอีกครั้ง</td></tr>
+            <tr><td><strong>Bastion of Remembrance</strong><br>Enchantment</td><td>{1}{W}{B}</td><td>เมื่อเข้าสนาม สร้างโทเค็น 1/1 Human Soldier ขาว ทุกครั้งที่ครีเจอร์ที่คุณควบคุมตาย คู่ต่อสู้แต่ละคนเสียชีวิต 1 หน่วย คุณได้รับชีวิต 1 หน่วย</td></tr>
+          </tbody>
+        </table>
+
+        <h3>18.1 สถานการณ์: สังเวยครีเจอร์ 1/1 ผ่าน Viscera Seer</h3>
+        <p class="rule-note">คุณควบคุมการ์ดทั้งสามใบข้างต้น บวก Viscera Seer และครีเจอร์ 1/1 ตัวหนึ่ง</p>
+        <ol class="rule-steps">
+          <li>เปิดใช้ Viscera Seer สังเวยครีเจอร์ 1/1 — นี่คือ activated ability (CR 602) ต้นทุนคือการสังเวย จ่ายทันที → ครีเจอร์ตายตั้งแต่จุดนี้ ก่อน Viscera Seer จะขึ้น stack ด้วยซ้ำ</li>
+          <li>ครีเจอร์ตาย → <strong>Bastion of Remembrance ทริกเกอร์</strong> (มันเป็น "permanent you control" ไม่ใช่ครีเจอร์ ดังนั้น Delney <strong>ไม่เกี่ยว</strong> เพราะ Delney ดูแค่ครีเจอร์พลัง ≤2 เท่านั้น)</li>
+          <li>แต่ <strong>Teysa เกี่ยว</strong> — เพราะ "การตายของครีเจอร์" ทำให้ Bastion ทริกเกอร์ ตามเงื่อนไขของ Teysa ตรงตัว → Bastion ทริกเกอร์<strong>เพิ่มอีกครั้ง</strong> รวมเป็น <strong>2 ครั้ง</strong></li>
+          <li>ผลลัพธ์: คู่ต่อสู้แต่ละคนเสียชีวิต <strong>2</strong> หน่วย คุณได้รับชีวิต <strong>2</strong> หน่วย (ไม่ใช่ 1)</li>
+        </ol>
+
+        <h3>18.2 ถ้าครีเจอร์ที่สังเวยมี Afterlife/death trigger ของตัวเองด้วย</h3>
+        <p class="rule-note">สมมติครีเจอร์ที่สังเวยมีความสามารถ "เมื่อครีเจอร์นี้ตาย สร้างโทเค็น" ของตัวเอง (สไตล์ Afterlife) และมีพลังโจมตี ≤2</p>
+        <ul>
+          <li>ทริกเกอร์นั้นเข้าเงื่อนไขของ <strong>ทั้ง Teysa</strong> (เป็น death trigger) <strong>และ Delney</strong> (มาจากครีเจอร์พลัง ≤2 — เช็คค่าพลังจาก <em>ข้อมูลล่าสุดก่อนตาย</em>, CR 603.10 เรื่อง Last Known Information)</li>
+          <li>ตัวคูณไม่ได้ทวีคูณกัน (ไม่ใช่ 1×2×2=4) แต่ <strong>บวกกัน</strong>: ทริกเกอร์ปกติ 1 ครั้ง + Teysa เพิ่ม 1 + Delney เพิ่ม 1 = <strong>รวม 3 ครั้ง</strong> (หลักการเดียวกับ Elesh Norn + Panharmonicon ที่ไม่คูณกัน)</li>
+          <li>ทริกเกอร์ทั้งหมดที่คุณควบคุมพร้อมกัน คุณเป็นผู้เลือกลำดับการวางลง stack เอง (CR 603.3b)</li>
         </ul>
       </section>
 

@@ -192,6 +192,8 @@ img{max-width:100%;}
   .reader-col{padding-top:36px;}
   .library-col{padding-top:32px;}
 }
+.char-link{border-bottom:1px dotted var(--accent);}
+.char-link:hover{border-bottom-style:solid;}
 @media (max-width:640px){
   .volume-grid{grid-template-columns:1fr;}
   .vol-card.is-featured{grid-column:span 1;}

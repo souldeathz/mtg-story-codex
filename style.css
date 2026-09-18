@@ -194,6 +194,17 @@ img{max-width:100%;}
 }
 .char-link{border-bottom:1px dotted var(--accent);}
 .char-link:hover{border-bottom-style:solid;}
+.set-source{font-size:13px;color:var(--ink-faint);font-style:italic;margin:10px 0 0;}
+.set-source strong{color:var(--ink-muted);font-style:normal;font-weight:600;}
+.set-more{font-size:12.5px;margin:6px 0 0;}
+.set-more a{color:var(--accent);font-weight:600;}
+.set-more a:hover{text-decoration:underline;}
+.char-group{margin:0 0 36px;}
+.char-group-title{font-family:"Fraunces",serif;font-weight:600;font-size:19px;margin:0 0 14px;color:var(--ink);}
+.char-grid{margin-bottom:0;}
+.char-card .vol-card-num{font-family:"Fraunces",serif;font-size:15.5px;color:var(--ink);}
+.char-card:hover .vol-card-num{color:var(--accent);}
+.term-name{font-weight:600;color:var(--ink);cursor:default;}
 @media (max-width:640px){
   .volume-grid{grid-template-columns:1fr;}
   .vol-card.is-featured{grid-column:span 1;}

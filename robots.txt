@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://souldeathz.github.io/mtg-story-codex/sitemap.xml

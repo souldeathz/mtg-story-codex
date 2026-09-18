@@ -34,7 +34,7 @@
     <div class="sidebar-search">
       <div class="sidebar-search-box">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-        <input type="search" id="codex-search" placeholder="ค้นหาบท หรือชุดการ์ด…" aria-label="ค้นหาบท">
+        <input type="search" id="codex-search" placeholder="ค้นหาบท ชุดการ์ด หรือชื่อตัวละคร…" aria-label="ค้นหาบท">
       </div>
     </div>
     <nav class="sidebar-nav" id="sidebar-nav" aria-label="สารบัญ"></nav>
@@ -593,6 +593,72 @@ ENDING PHASE (เฟสจบเทิร์น)
           <li>ตัวคูณไม่ได้ทวีคูณกัน (ไม่ใช่ 1×2×2=4) แต่ <strong>บวกกัน</strong>: ทริกเกอร์ปกติ 1 ครั้ง + Teysa เพิ่ม 1 + Delney เพิ่ม 1 = <strong>รวม 3 ครั้ง</strong> (หลักการเดียวกับ Elesh Norn + Panharmonicon ที่ไม่คูณกัน)</li>
           <li>ทริกเกอร์ทั้งหมดที่คุณควบคุมพร้อมกัน คุณเป็นผู้เลือกลำดับการวางลง stack เอง (CR 603.3b)</li>
         </ul>
+      </section>
+
+      <section class="rule-section" id="token-doubling-case-study">
+        <h2>19. กรณีศึกษา 2: ตัวคูณโทเค็น (Mondrak) vs ตัวคูณทริกเกอร์ (Teysa) ในเด็ค Aristocrats</h2>
+        <p class="rule-note">ต่อยอดจากหัวข้อ 18 — จุดที่ผู้เล่นสับสนบ่อยที่สุดคือ "ตัวคูณ" สองแบบนี้ไม่ใช่กลไกเดียวกัน และให้ผลลัพธ์ทางคณิตศาสตร์ต่างกัน</p>
+        <table>
+          <thead><tr><th>การ์ด</th><th>ต้นทุน</th><th>ข้อความ</th></tr></thead>
+          <tbody>
+            <tr><td><img class="rule-card-img" src="https://api.scryfall.com/cards/named?fuzzy=Mondrak%2C%20Glory%20Dominus&format=image&version=normal" alt="Mondrak, Glory Dominus" loading="lazy" onerror="this.remove()"><strong>Mondrak, Glory Dominus</strong><br>4/4</td><td>{2}{W}{W}</td><td>ถ้าจะมีโทเค็นหนึ่งตัวขึ้นไปเข้าสนามภายใต้การควบคุมของคุณ ให้สร้างโทเค็นนั้นเป็นสองเท่าแทน</td></tr>
+            <tr><td><img class="rule-card-img" src="https://api.scryfall.com/cards/named?fuzzy=Dictate%20of%20Erebos&format=image&version=normal" alt="Dictate of Erebos" loading="lazy" onerror="this.remove()"><strong>Dictate of Erebos</strong><br>Enchantment</td><td>{3}{B}{B}</td><td>Flash. ทุกครั้งที่ครีเจอร์ที่คุณควบคุมตาย คู่ต่อสู้แต่ละคนสังเวยครีเจอร์หนึ่งตัว</td></tr>
+          </tbody>
+        </table>
+
+        <h3>19.1 ทำไม Mondrak ถึง "คูณจริง" แต่ Delney ถึง "บวกเท่านั้น"</h3>
+        <ul>
+          <li><strong>Teysa / Delney / Panharmonicon</strong> เป็นเอฟเฟกต์ประเภท <em>"ความสามารถนี้ทริกเกอร์เพิ่มอีกครั้ง"</em> — มันเพิ่มจำนวนครั้งที่ตัว<strong>ทริกเกอร์</strong>ขึ้น stack เท่านั้น กฎการซ้อนทับของเอฟเฟกต์ประเภทนี้ (เทียบเคียงคำวินิจฉัยของ Panharmonicon/Strionic Resonator) คือ <strong>บวกทีละ 1</strong> ต่อตัวคูณหนึ่งใบ ไม่ทวีคูณกันเอง</li>
+          <li><strong>Mondrak</strong> เป็นเอฟเฟกต์ทดแทน (replacement effect) คนละชนิด — มันไม่แตะต้องทริกเกอร์เลย แต่ดักจับ<strong>เหตุการณ์การสร้างโทเค็น</strong>ทุกครั้งที่เกิดขึ้น แล้วเปลี่ยนจำนวนโทเค็นที่ถูกสร้างในเหตุการณ์นั้นเป็นสองเท่า (CR 614, 616)</li>
+          <li>เพราะเป็นคนละกลไก การซ้อนกันของทั้งสองแบบจึง <strong>คูณกันจริง</strong> ไม่ใช่บวกกัน</li>
+        </ul>
+
+        <h3>19.2 ตัวอย่างคำนวณ: ครีเจอร์ Afterlife 2 ตาย ขณะมี Teysa + Mondrak</h3>
+        <p class="rule-note">Afterlife 2: "เมื่อครีเจอร์นี้ตาย สร้างโทเค็น Spirit ขาว/ดำ 1/1 มีบินได้ 2 ตัว"</p>
+        <ol class="rule-steps">
+          <li>ครีเจอร์ตาย → ความสามารถ Afterlife ทริกเกอร์ 1 ครั้งตามปกติ แต่ Teysa ทำให้มันทริกเกอร์<strong>เพิ่มอีกครั้ง</strong> รวมเป็น <strong>2 อินสแตนซ์บน stack</strong> (เหมือนหัวข้อ 18 — บวก ไม่คูณ)</li>
+          <li>แต่ละอินสแตนซ์ resolve แยกกัน โดยแต่ละครั้งพยายามสร้างโทเค็น 2 ตัวตามข้อความเดิม</li>
+          <li><strong>Mondrak ดักเหตุการณ์การสร้างโทเค็นของแต่ละอินสแตนซ์แยกกัน</strong> — "จะสร้าง 2 ตัว" กลายเป็น "สร้าง 4 ตัว" ในแต่ละครั้ง</li>
+          <li>ผลรวม: 2 อินสแตนซ์ (จาก Teysa) × 4 ตัวต่ออินสแตนซ์ (จาก Mondrak คูณเป็นสองเท่าของ 2) = <strong>8 โทเค็น Spirit</strong> ไม่ใช่ 4 หรือ 6</li>
+        </ol>
+        <p class="rule-note">ถ้ามีตัวคูณโทเค็นสองใบ (เช่น Mondrak + Anointed Procession) ทั้งคู่จะคูณกันเองด้วย — 2 (จาก Teysa) × 2 (Mondrak) × 2 (Anointed Procession) = 16 ตัว เพราะตัวคูณโทเค็นแต่ละใบเป็นเอฟเฟกต์ทดแทนที่ apply ต่อกันได้ไม่จำกัด (CR 616.1 — ผู้เล่นเลือกลำดับ apply เอง แต่ผลลัพธ์สุดท้ายคูณกันเสมอไม่ว่าจะเรียงลำดับไหน)</p>
+
+        <h3>19.3 Dictate of Erebos กับ Teysa: สังเวยกี่ตัว</h3>
+        <ul>
+          <li>Dictate of Erebos เป็น "permanent you control" (enchantment) ไม่ใช่ครีเจอร์ — ความสามารถของมันทริกเกอร์จาก<strong>การตายของครีเจอร์อื่น</strong> ตรงเงื่อนไข Teysa ทุกประการ (เหมือน Bastion of Remembrance ในหัวข้อ 18)</li>
+          <li>มีครีเจอร์ตาย 1 ตัว → Dictate ทริกเกอร์ 2 ครั้ง (จาก Teysa) → คู่ต่อสู้แต่ละคน<strong>สังเวยครีเจอร์ 2 ตัว</strong> ไม่ใช่ 1 ตัว — มีประโยชน์มากในโต๊ะ multiplayer ที่ยังไม่มี Grave Pact effect อื่นซ้ำ</li>
+          <li>ข้อควรระวัง: ถ้าคู่ต่อสู้มีครีเจอร์เหลือไม่พอสังเวยครบ 2 ตัว ก็สังเวยเท่าที่มี ไม่มีผลข้างเคียงเพิ่ม (ไม่ใช่ดาเมจ ไม่มี "ถ้าสังเวยไม่ได้ ให้...")</li>
+        </ul>
+      </section>
+
+      <section class="rule-section" id="faq">
+        <h2>20. คำถามที่พบบ่อย / ความเข้าใจผิดที่พบบ่อย</h2>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>Mana ability ผ่าน stack หรือเปล่า?</summary>
+            <p><strong>ไม่ผ่าน</strong> ความสามารถที่ผลิตมานา (mana ability, CR 605) resolve ทันทีโดยไม่ขึ้น stack และผู้เล่นอื่นไม่มีโอกาสตอบโต้ระหว่างนั้น ต่างจากความสามารถ activated ทั่วไปที่ต้องขึ้น stack และรอ priority วนครบก่อน resolve</p>
+          </details>
+          <details class="faq-item">
+            <summary>State-based action (SBA) เป็น "ทริกเกอร์" หรือเปล่า?</summary>
+            <p><strong>ไม่ใช่</strong> SBA (เช่น ครีเจอร์ toughness 0 ไปสุสาน, player life 0 แพ้) ไม่ขึ้น stack ไม่ใช่ triggered ability และไม่สามารถตอบโต้ (respond) ได้ ระบบจะตรวจสอบและจัดการ SBA ทุกครั้งที่ผู้เล่นจะได้ priority โดยอัตโนมัติ (CR 704) ส่วน "dies" trigger ที่มาจาก SBA ทำให้ครีเจอร์ตาย จะ<strong>ทริกเกอร์แยกต่างหาก</strong>หลังจาก SBA นั้นเกิดขึ้นแล้ว</p>
+          </details>
+          <details class="faq-item">
+            <summary>"Destroy", "Sacrifice", "ตาย (dies)" ต่างกันอย่างไร?</summary>
+            <p><strong>Destroy</strong> และ <strong>Sacrifice</strong> เป็นวิธีการที่ทำให้ครีเจอร์ไปสุสาน ส่วน <strong>"dies"</strong> คือคำเรียกเหตุการณ์ "ครีเจอร์ไปจากสนามสู่สุสาน" ไม่ว่าจะมาจากสาเหตุใด (destroy, sacrifice, SBA จาก toughness 0 หรือดาเมจถึงตาย) ยกเว้น exile หรือเปลี่ยนโซนด้วยวิธีอื่นที่ไม่ใช่ไปสุสาน — เอฟเฟกต์ป้องกัน destroy เช่น Indestructible <strong>ป้องกันไม่ได้</strong>กับ Sacrifice เพราะ sacrifice ไม่ใช่การ destroy</p>
+          </details>
+          <details class="faq-item">
+            <summary>ครีเจอร์มี Vigilance แต่ยังมี Summoning Sickness โจมตีได้ไหม?</summary>
+            <p><strong>ไม่ได้</strong> Vigilance แค่ทำให้ไม่ต้องแท็ปเวลาโจมตี ไม่เกี่ยวกับ Summoning Sickness เลย ครีเจอร์ที่เพิ่งเข้าสนามยังต้องรอจนควบคุมมันตั้งแต่ต้นเทิร์นของคุณ (หรือมี Haste) ถึงจะโจมตีหรือใช้ความสามารถที่มี {T}/{Q} ในต้นทุนได้</p>
+          </details>
+          <details class="faq-item">
+            <summary>กฎเลเจนดารี (Legend Rule) เช็คตอนไหน และเลือกทิ้งใบไหนได้ไหม?</summary>
+            <p>เป็น SBA ที่เช็คตลอดเวลา — ถ้าคุณควบคุมถาวร legendary ชื่อเดียวกันมากกว่า 1 ใบพร้อมกัน <strong>คุณเป็นผู้เลือกเอง</strong>ว่าจะเก็บใบไหนไว้ ที่เหลือไปสุสานทั้งหมด (CR 704.5j) ไม่ใช่ใบล่าสุดที่เข้าสนามที่ต้องทิ้งเสมอไปตามที่หลายคนเข้าใจผิด</p>
+          </details>
+          <details class="faq-item">
+            <summary>"เมื่อเข้าสนาม" (ETB) กับ "เมื่อร่ายสเปลล์นี้" ต่างกันอย่างไร?</summary>
+            <p>ETB trigger (เช่น Afterlife's token, ส่วนใหญ่ของครีเจอร์) ทำงาน<strong>ทุกครั้ง</strong>ที่ถาวรเข้าสนาม ไม่ว่าจะมาจากการร่าย, ใส่มือแล้ว cheat เข้าสนาม, หรือ reanimate จากสุสาน ส่วน "เมื่อร่ายสเปลล์นี้" (cast trigger) ทำงานเฉพาะตอนร่ายจริงเท่านั้น เช่น Storm หรือ Prowess-adjacent triggers บางใบ — สับสนกันบ่อยเวลาประเมินว่าการ์ด reanimation จะได้ค่า ETB คืนมาหรือไม่ (โดยทั่วไปได้ เพราะ ETB ไม่สนวิธีที่เข้าสนาม)</p>
+          </details>
+        </div>
       </section>
 
       </article>

@@ -3,8 +3,47 @@
   var base = window.CODEX_BASE || "./";
   var current = window.CODEX_CHAPTER || null;
 
+  var SHORTCUTS = [
+    { href: "rules.html", label: "กฎกติกา MTG", icon: "rules" },
+    { href: "characters.html", label: "คู่มือตัวละคร", icon: "chars" },
+    { href: "glossary.html", label: "อภิธานศัพท์", icon: "glossary" }
+  ];
+
   function chevronSvg() {
     return '<svg class="vol-head-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 6 15 12 9 18"></polyline></svg>';
+  }
+
+  function shortcutIcon(name) {
+    if (name === "rules") {
+      return '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h9l3 3v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z"></path><path d="M9 9h6M9 13h6M9 17h3"></path></svg>';
+    }
+    if (name === "chars") {
+      return '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"></circle><path d="M2.5 20c.6-3.6 3.3-6 6.5-6s5.9 2.4 6.5 6"></path><circle cx="17.5" cy="8.5" r="2.6"></circle><path d="M15.6 14.3c2.6.4 4.8 2.5 5.3 5.7"></path></svg>';
+    }
+    return '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21V5a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16l6-3.5z"></path></svg>';
+  }
+
+  function currentFile() {
+    var path = (window.location && window.location.pathname) || "";
+    var parts = path.split("/");
+    var last = parts[parts.length - 1];
+    return last && last.length ? last : "index.html";
+  }
+
+  function renderShortcuts() {
+    var anchor = document.getElementById("sidebar-nav");
+    if (!anchor || !anchor.parentNode) return;
+    var file = currentFile();
+    var html = '<div class="sidebar-shortcuts">';
+    SHORTCUTS.forEach(function (s) {
+      var isActive = file === s.href;
+      html +=
+        '<a class="shortcut-link' + (isActive ? " is-active" : "") + '" href="' + base + s.href + '"' +
+        (isActive ? ' aria-current="page"' : "") + ">" +
+        shortcutIcon(s.icon) + "<span>" + s.label + "</span></a>";
+    });
+    html += "</div>";
+    anchor.insertAdjacentHTML("beforebegin", html);
   }
 
   function renderSidebar(filterText) {
@@ -68,6 +107,7 @@
   }
 
   document.addEventListener("DOMContentLoaded", function () {
+    renderShortcuts();
     renderSidebar("");
 
     var search = document.getElementById("codex-search");

@@ -6,7 +6,7 @@ const characters = [
     role: "นักฆ่ากอร์กอนจาก Ravnica · คนรักของ Jace",
     faction: "resistance",
     icon: "coil",
-    scryfall: "Vraska",
+    scryfall: "Vraska, the Silencer",
     desc: "ตัวละครหลักที่สุดของเรื่อง ต้องเผชิญกับความจริงว่าคนที่เธอรักกำลังทำลายมัลติเวิร์ส เป็นคนเดียวที่ Theorist สะกดให้หลับไม่ได้ เพราะความผูกพันทางใจที่แน่นแฟ้น"
   },
   {
@@ -78,7 +78,7 @@ const characters = [
     role: "เอลดราซิจากดวงจันทร์ Innistrad",
     faction: "echoverse",
     icon: "shard",
-    scryfall: "Emrakul",
+    scryfall: "Emrakul, the Promised End",
     desc: "ปรากฏตัวในตอนจบเพื่อกินเฉพาะ Echoverse ของ Jace หลังถูก Tam เจรจาต่อรองด้วยพลังจิต"
   }
 ];

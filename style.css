@@ -355,3 +355,23 @@ td .mana-sym{width:20px;height:20px;vertical-align:middle;margin:0;}
   .chapter-nav{flex-direction:column;}
   .nav-next{text-align:left;}
 }
+
+/* ============ deep-dive companion pages (per-chapter "full.html") ============ */
+.deepdive-section{padding:40px 0 0;}
+.deepdive-section + .deepdive-section{border-top:1px solid var(--rule);margin-top:40px;}
+
+.char-card-role{margin:2px 0 8px;font-size:12px;color:var(--ink-muted);font-weight:600;}
+.char-card-link{display:block;margin-top:10px;padding-top:10px;border-top:1px solid var(--rule);font-size:12px;color:var(--ink-faint);}
+.char-card:hover .char-card-link{color:var(--accent);}
+
+.deepdive-story .faq-item p{
+  font-family:"Noto Serif Thai",serif;font-size:15.5px;line-height:1.85;
+  color:var(--ink);margin:0 0 14px;
+}
+.deepdive-story .faq-item p:last-child{margin-bottom:0;}
+.deepdive-story .faq-item p strong{color:var(--accent);font-weight:600;}
+
+.deepdive-quote-box{border-radius:var(--radius-l);padding:32px 28px;background:var(--accent-soft);border:1px solid var(--rule);}
+.deepdive-quote{font-family:"Fraunces",serif;font-style:italic;font-weight:600;font-size:26px;color:var(--accent);margin:0 0 14px;}
+.deepdive-quote-body{margin:0;font-family:"Noto Serif Thai",serif;font-size:15.5px;line-height:1.85;color:var(--ink);}
+.deepdive-quote-body strong{color:var(--ink);font-weight:700;}

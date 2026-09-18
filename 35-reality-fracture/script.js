@@ -203,17 +203,20 @@ function renderCharacters(filter) {
     .filter(c => filter === "all" || c.faction === filter)
     .forEach(c => {
       const card = document.createElement("a");
-      card.className = `char-card faction-${c.faction}`;
+      card.className = `vol-card char-card rf-char-card faction-${c.faction}`;
       card.href = `https://scryfall.com/search?q=${encodeURIComponent(c.scryfall)}`;
       card.target = "_blank";
       card.rel = "noopener";
+      const imgUrl = `https://api.scryfall.com/cards/named?fuzzy=${encodeURIComponent(c.scryfall)}&format=image&version=art_crop`;
       card.innerHTML = `
-        <span class="char-icon">${iconSvg(c.icon)}</span>
-        <span class="char-external" aria-hidden="true"></span>
-        <p class="char-name">${c.name}</p>
-        <p class="char-role">${c.role}</p>
-        <p class="char-desc">${c.desc}</p>
-        <span class="char-link-label">ดูภาพการ์ดบน Scryfall</span>
+        <img class="char-card-img" src="${imgUrl}" alt="${c.name}" loading="lazy" onerror="this.remove()">
+        <div class="vol-card-top">
+          <span class="vol-card-num">${c.name}</span>
+          <span class="rf-char-icon">${iconSvg(c.icon)}</span>
+        </div>
+        <p class="rf-char-role">${c.role}</p>
+        <p class="vol-card-meta">${c.desc}</p>
+        <span class="rf-char-link">ดูภาพการ์ดบน Scryfall →</span>
       `;
       grid.appendChild(card);
     });

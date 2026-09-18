@@ -104,11 +104,8 @@
     var anchor = document.getElementById("sidebar-nav");
     if (!anchor || !anchor.parentNode) return;
     var file = currentFile();
-    var isOnRulesPage = file === "rules.html";
-    var activeId = isOnRulesPage ? currentHash() : "";
 
     var html = '<div class="sidebar-shortcuts">';
-    html += renderRulesGroup(isOnRulesPage, activeId);
     SHORTCUTS.forEach(function (s) {
       var isActive = file === s.href;
       html +=
@@ -118,24 +115,15 @@
     });
     html += "</div>";
     anchor.insertAdjacentHTML("beforebegin", html);
-
-    var rulesHead = document.querySelector(".rules-group > .vol-head");
-    if (rulesHead) {
-      rulesHead.addEventListener("click", function () {
-        var group = rulesHead.closest(".vol-group");
-        var chapters = group.querySelector(".vol-chapters");
-        var isOpen = group.classList.toggle("is-open");
-        rulesHead.setAttribute("aria-expanded", isOpen ? "true" : "false");
-        if (isOpen) chapters.removeAttribute("hidden");
-        else chapters.setAttribute("hidden", "");
-      });
-    }
   }
 
   function renderSidebar(filterText) {
     var nav = document.getElementById("sidebar-nav");
     if (!nav) return;
     var q = (filterText || "").trim().toLowerCase();
+    var file = currentFile();
+    var isOnRulesPage = file === "rules.html";
+    var activeId = isOnRulesPage ? currentHash() : "";
     var html = "";
     var anyMatch = false;
 
@@ -173,6 +161,7 @@
     if (q && !anyMatch) {
       html = '<p class="sidebar-empty">ไม่พบบทที่ตรงกับ “' + escapeHtml(filterText) + '”</p>';
     }
+    html += renderRulesGroup(isOnRulesPage, activeId);
     nav.innerHTML = html;
 
     nav.querySelectorAll(".vol-head").forEach(function (btn) {

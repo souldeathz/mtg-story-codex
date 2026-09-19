@@ -6,15 +6,15 @@ const characters = [
     role: "นักฆ่ากอร์กอนจาก Ravnica · คนรักของ Jace",
     faction: "resistance",
     icon: "coil",
-    scryfall: "Vraska, the Silencer",
-    desc: "ตัวละครหลักที่สุดของเรื่อง ต้องเผชิญกับความจริงว่าคนที่เธอรักกำลังทำลายมัลติเวิร์ส เป็นคนเดียวที่ Theorist สะกดให้หลับไม่ได้ เพราะความผูกพันทางใจที่แน่นแฟ้น"
+    scryfall: "Vraska, the Silencer", localImg: "../images/cards/vraska-the-silencer.jpg", localImg: "../images/cards/vraska-the-silencer.jpg",
+    desc: "ตัวละครหลักที่สุดของเรื่อง ต้องเผชิญกับความจริงว่าคนที่เธอรักกำลังทำลายมัลติเวิร์ส เป็นคนเดียวที่ Theorist สะกดให้หลับไม่ได้ เพราะความผูกพันทางใจที่แน่นแฟ้น",
   },
   {
     name: "Chandra Nalaar",
     role: "นักเพลิงมนตร์ · เพื่อนเก่าของ Jace",
     faction: "resistance",
     icon: "flame",
-    scryfall: "Chandra Nalaar",
+    scryfall: "Chandra Nalaar", localImg: "../images/cards/chandra-nalaar.jpg", localImg: "../images/cards/chandra-nalaar.jpg",
     desc: "ตัวตั้งตัวตีในการรวมทีมออกตามหา Jace หลังรู้ว่าเขายังไม่ตาย"
   },
   {
@@ -22,7 +22,7 @@ const characters = [
     role: "สิงโตนักรบ · เมนเทอร์",
     faction: "resistance",
     icon: "rays",
-    scryfall: "Ajani Goldmane",
+    scryfall: "Ajani Goldmane", localImg: "../images/cards/ajani-goldmane.jpg", localImg: "../images/cards/ajani-goldmane.jpg",
     desc: "ผู้มีเหตุผลและใจเย็นในทีม คอยถ่วงดุลความหุนหันของเพื่อนร่วมทาง"
   },
   {
@@ -30,7 +30,7 @@ const characters = [
     role: "นักล่าจาก Muraganda",
     faction: "resistance",
     icon: "claw",
-    scryfall: "Garruk Wildspeaker",
+    scryfall: "Garruk Wildspeaker", localImg: "../images/cards/garruk-wildspeaker.jpg",
     desc: "ถูกดึงกลับมาร่วมทีมทั้งที่ปลีกตัวไปนาน มีพลังมองทะลุภาพลวงตา ซึ่งมีประโยชน์มากตลอดเรื่อง"
   },
   {
@@ -38,7 +38,7 @@ const characters = [
     role: "เนโครแมนเซอร์ · อดีตพันธมิตรของ Jace",
     faction: "resistance",
     icon: "moon",
-    scryfall: "Liliana Vess",
+    scryfall: "Liliana Vess", localImg: "../images/cards/liliana-vess.jpg", localImg: "../images/cards/liliana-vess.jpg",
     desc: "มีทั้งเวอร์ชันจริงและเวอร์ชันปลอมใน Echoverse บทบาทซับซ้อน สุดท้ายมาร่วมไว้อาลัย Jace ตอนจบ"
   },
   {
@@ -46,15 +46,15 @@ const characters = [
     role: "ตัวเอกของเรื่อง · ผู้สร้าง Echoverse",
     faction: "echoverse",
     icon: "vortex",
-    scryfall: "Jace Beleren",
-    desc: "อดีตนักจิตวิญญาณที่บอบช้ำจาก Phyrexian Invasion จนสร้างจักรวาลคู่ขนานไร้โศกนาฏกรรมของตัวเอง ตลอดเรื่องแตกออกเป็นหลายเสี้ยวบุคลิก เช่น the Detective, the Soldier, the Guildpact, the Nihilist"
+    scryfall: "Jace Beleren", localImg: "../images/cards/jace-beleren.jpg", localImg: "../images/cards/jace-beleren.jpg",
+    desc: "อดีตนักจิตวิญญาณที่บอบช้ำจาก Phyrexian Invasion จนสร้างจักรวาลคู่ขนานไร้โศกนาฏกรรมของตัวเอง ตลอดเรื่องแตกออกเป็นหลายเสี้ยวบุคลิก เช่น the Detective, the Soldier, the Guildpact, the Nihilist",
   },
   {
     name: "Tam (Tamira)",
     role: "สิ่งมีชีวิตประดิษฐ์ที่ Jace สร้างขึ้น",
     faction: "echoverse",
     icon: "hex",
-    scryfall: "Tamira",
+    scryfall: "Tamira", localImg: "../images/cards/tamira.jpg", localImg: "../images/cards/tamira.jpg",
     desc: "มีความทรงจำจากชีวิตเดิมที่ Strixhaven ค่อยๆ ค้นพบพลังจิตของตัวเอง และกลายเป็นตัวละครสำคัญที่สุดในตอนจบ — เผยว่าถูกสร้างมาเป็นทายาท/แผนสำรองของ Jace"
   },
   {
@@ -62,7 +62,7 @@ const characters = [
     role: "โอราเคิลผู้พยากรณ์",
     faction: "echoverse",
     icon: "eye",
-    scryfall: "Jadzi",
+    scryfall: "Jadzi, Oracle of Arcavios", localImg: "../images/cards/jadzi-oracle-of-arcavios.jpg", localImg: "../images/cards/jadzi-oracle-of-arcavios.jpg",
     desc: "ถูก Tam จับตัวมาส่งให้ Jace ก่อนเริ่มเรื่อง ถูกขังไว้เพื่อให้ Theorist ใช้ไขความลับสู่การรู้แจ้งทุกสิ่ง"
   },
   {
@@ -70,7 +70,7 @@ const characters = [
     role: "สฟิงซ์ยักษ์",
     faction: "echoverse",
     icon: "pyramid",
-    scryfall: "Alhammarret",
+    scryfall: "Alhammarret, High Arbiter", localImg: "../images/cards/alhammarret-high-arbiter.jpg",
     desc: "เคยทำร้าย/หลอกใช้ Jace ตอนเด็ก เป็นตัวแทนบาดแผลในอดีตที่ตามหลอกหลอน ถูกปลุกขึ้นมาอีกครั้งกลางเรื่อง"
   },
   {
@@ -78,8 +78,8 @@ const characters = [
     role: "เอลดราซิจากดวงจันทร์ Innistrad",
     faction: "echoverse",
     icon: "shard",
-    scryfall: "Emrakul, the Promised End",
-    desc: "ปรากฏตัวในตอนจบเพื่อกินเฉพาะ Echoverse ของ Jace หลังถูก Tam เจรจาต่อรองด้วยพลังจิต"
+    scryfall: "Emrakul, the Promised End", localImg: "../images/cards/emrakul-the-promised-end.jpg",
+    desc: "ปรากฏตัวในตอนจบเพื่อกินเฉพาะ Echoverse ของ Jace หลังถูก Tam เจรจาต่อรองด้วยพลังจิต",
   }
 ];
 
@@ -207,7 +207,7 @@ function renderCharacters(filter) {
       card.href = `https://scryfall.com/search?q=${encodeURIComponent(c.scryfall)}`;
       card.target = "_blank";
       card.rel = "noopener";
-      const imgUrl = `https://api.scryfall.com/cards/named?fuzzy=${encodeURIComponent(c.scryfall)}&format=image&version=art_crop`;
+      const imgUrl = c.localImg || `https://api.scryfall.com/cards/named?fuzzy=${encodeURIComponent(c.scryfall)}&format=image&version=art_crop`;
       card.innerHTML = `
         <img class="char-card-img" src="${imgUrl}" alt="${c.name}" loading="lazy" onerror="this.remove()">
         <div class="vol-card-top">

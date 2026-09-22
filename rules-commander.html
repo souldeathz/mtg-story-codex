@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>กฎกติกา Magic: The Gathering (3/4) — Commander & Orzhov | MTG Story Codex</title>
+<meta name="description" content="สรุปกฎ Magic: The Gathering ฉบับภาษาไทย ส่วนที่ 3: กฎเฉพาะฟอร์แมต Commander (EDH) แบบละเอียด กลไกสี Orzhov (Afterlife, Extort, Haunt), Edict Effects เจาะลึก และกฎ Infinite Combo/Loop">
+<meta property="og:title" content="กฎกติกา Magic: The Gathering (3/4) — Commander & Orzhov | MTG Story Codex">
+<meta property="og:description" content="สรุปกฎ Magic: The Gathering ฉบับภาษาไทย ส่วนที่ 3: กฎเฉพาะฟอร์แมต Commander (EDH) แบบละเอียด กลไกสี Orzhov (Afterlife, Extort, Haunt), Edict Effects เจาะลึก และกฎ Infinite Combo/Loop">
+<meta property="og:image" content="./og-image.png">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Noto+Sans+Thai:wght@400;500;600;700&family=Noto+Serif+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<script>window.CODEX_BASE="./";window.CODEX_CHAPTER=null;</script>
+
+<div class="sidebar-backdrop"></div>
+<div class="mobile-topbar">
+  <button class="sidebar-toggle" type="button" aria-label="เปิดเมนูสารบัญ">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg>
+  </button>
+  <span class="mobile-topbar-title">MTG Story Codex</span>
+</div>
+
+<div class="archive-shell">
+  <aside class="archive-sidebar">
+    <div class="sidebar-brand">
+      <a class="sidebar-brand-link" href="index.html">MTG Story Codex</a>
+      <p class="sidebar-brand-sub">Story Archive</p>
+    </div>
+    <div class="sidebar-search">
+      <div class="sidebar-search-box">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="search" id="codex-search" placeholder="ค้นหาบท ชุดการ์ด หรือชื่อตัวละคร…" aria-label="ค้นหาบท">
+      </div>
+    </div>
+    <nav class="sidebar-nav" id="sidebar-nav" aria-label="สารบัญ"></nav>
+  </aside>
+
+  <main class="archive-main">
+    <div class="library-col rules-col">
+      <p class="kicker">Magic: The Gathering · Story Codex · ส่วนที่ 3/4 · Commander (EDH) และ Orzhov</p>
+      <h1 class="library-title">กฎกติกา Magic: The Gathering</h1>
+      <p class="library-intro">กฎเฉพาะฟอร์แมต Commander (EDH): deckbuilding, Command Zone, Commander Damage, Partner, Brackets — กลไกสี Orzhov (Afterlife, Extort, Haunt) — Edict Effects เจาะลึก — และกฎ Infinite Combo/Loop สำหรับเด็คสาย Aristocrats</p>
+
+      <nav class="rules-page-tabs" aria-label="สลับหน้ากฎ">
+        <a href="rules.html" class=""><span class="tab-num">1</span>พื้นฐานเกม</a>
+        <a href="rules-mechanics.html" class=""><span class="tab-num">2</span>กลไก & เอฟเฟกต์</a>
+        <a href="rules-commander.html" class="is-active"><span class="tab-num">3</span>Commander & Orzhov</a>
+        <a href="rules-aristocrats.html" class=""><span class="tab-num">4</span>กรณีศึกษา</a>
+      </nav>
+
+      <nav class="rules-quicknav" aria-label="ลัดไปยังหมวด">
+        <a href="#commander">1. Commander (EDH)</a>
+        <a href="#orzhov">2. Orzhov</a>
+        <a href="#edict-effects">3. Edict Effects</a>
+        <a href="#infinite-combo">4. Infinite Combo</a>
+      </nav>
+
+      <article class="rules-body">
+
+<section class="rule-section" id="commander">
+        <h2>1. กฎเฉพาะ Commander (EDH)</h2>
+
+        <h3>1.1 การสร้างเด็ค</h3>
+        <ul>
+          <li>ต้องมี <strong>100 ใบพอดี</strong> รวม Commander (99 การ์ดในเด็ค + 1 Commander)</li>
+          <li>กฎ <strong>Singleton</strong>: มีการ์ดซ้ำได้ใบเดียวต่อชื่อ (ยกเว้น basic land)</li>
+          <li>การ์ดทุกใบต้องตรงกับ <strong>color identity</strong> ของ Commander</li>
+          <li>Color identity นับรวม: สัญลักษณ์มานาในต้นทุน + สัญลักษณ์มานาสีใดๆ ในข้อความกฎ (rules text) รวมถึงด้านหลังของ double-faced card ด้วย</li>
+          <li>Commander ต้องเป็น legendary creature หรือการ์ดที่ระบุไว้ชัดเจนว่า "can be your commander" (เช่น planeswalker บางใบที่มีข้อความนี้)</li>
+        </ul>
+
+        <h3>1.2 Command Zone</h3>
+        <ul>
+          <li>Commander เริ่มต้นอยู่ใน <strong>Command Zone</strong> ซึ่งเป็นโซนสาธารณะแยกจากสนาม, มือ, ไลบรารี, graveyard และ exile</li>
+          <li>ร่ายจาก Command Zone ได้ทุกเมื่อที่ปกติร่ายได้ (ความเร็ว sorcery สำหรับครีเจอร์ทั่วไป)</li>
+          <li><strong>Commander Tax</strong>: ทุกครั้งที่ร่าย commander จาก Command Zone ต้นทุนเพิ่มขึ้น <img class="mana-sym" src="https://svgs.scryfall.io/card-symbols/2.svg" alt="{2}" loading="lazy" onerror="this.replaceWith(this.alt)"> (สะสมไปเรื่อยๆ ทุกครั้งที่ร่ายจากโซนนี้ ไม่ว่าจะร่ายสำเร็จหรือถูกเคาน์เตอร์)</li>
+          <li>ถ้า commander จะต้องไป graveyard, exile, หรือกลับมือ (จากที่ใดก็ตามบนสนามหรือ stack) เจ้าของสามารถเลือกนำกลับเข้า Command Zone แทนได้ (CR 903.9) — เป็น replacement effect ที่เจ้าของเลือกใช้เอง</li>
+        </ul>
+
+        <h3>1.3 Commander Damage (ดาเมจจาก Commander)</h3>
+        <ul>
+          <li>ผู้เล่นที่ได้รับดาเมจจากการต่อสู้ (combat damage) จาก commander ตัวเดียวรวม <strong>21 หน่วยขึ้นไป</strong> จะแพ้เกมทันที</li>
+          <li>ดาเมจถูกนับสะสมตลอดทั้งเกม แม้ commander จะออกจากสนามแล้วกลับมาใหม่ หรือเปลี่ยนเจ้าของ/ผู้ควบคุม</li>
+          <li>นับเฉพาะ<strong>ดาเมจจากการต่อสู้</strong>เท่านั้น (ไม่นับดาเมจจากความสามารถหรือสเปลล์)</li>
+          <li>ถ้ามี commander สองตัว (Partner) ดาเมจของแต่ละตัวนับแยกกัน ไม่รวมกัน</li>
+        </ul>
+
+        <h3>1.4 Partner Commander และตัวแปรอื่น</h3>
+        <ul>
+          <li><strong>Partner</strong> — สามารถมี commander 2 ใบที่มีคีย์เวิร์ดนี้พร้อมกันได้</li>
+          <li><strong>Partner with [ชื่อ]</strong> — จับคู่ได้เฉพาะกับการ์ดที่ระบุชื่อไว้เท่านั้น</li>
+          <li><strong>Choose a Background</strong> — commander ที่มีข้อความนี้จับคู่กับการ์ดประเภท Background ได้ 1 ใบ</li>
+          <li><strong>Friends Forever</strong> — ทำงานเหมือน Partner แต่ปรากฏบนการ์ดจากชุด Commander Legends: Battle for Baldur's Gate</li>
+          <li>Commander ทั้งสองเริ่มต้นใน Command Zone แยกกัน; นับ commander tax แยกกันตามใบ</li>
+        </ul>
+
+        <h3>1.5 กฎการเริ่มเกมและ Multiplayer</h3>
+        <ul>
+          <li>ผู้เล่นเริ่มต้นด้วยชีวิต <strong>40 หน่วย</strong> (ไม่ใช่ 20 เหมือนฟอร์แมตอื่น)</li>
+          <li>กำหนดผู้เล่นเริ่มต้น (active player คนแรก) แบบสุ่ม เช่น ทอยลูกเต๋าหรือจับไพ่</li>
+          <li>ในเกมหลายผู้เล่น priority จะส่งต่อตามเข็มนาฬิกาเริ่มจาก active player</li>
+          <li>ในเกม free-for-all คู่ต่อสู้แต่ละคนนับเป็นทั้ง "opponent" และ "another player" สำหรับเอฟเฟกต์ที่ระบุคำเหล่านี้</li>
+          <li><strong>การกำจัดผู้เล่น (Player Elimination)</strong>: เมื่อผู้เล่นแพ้ ถาวร, สเปลล์ และความสามารถบน stack ที่พวกเขาเป็นเจ้าของจะถูกนำออกจากเกมทั้งหมด (รวมถึง commander ของพวกเขาที่อยู่ใน Command Zone) เกมดำเนินต่อกับผู้เล่นที่เหลือ</li>
+        </ul>
+
+        <h3>1.6 กฎบังคับ / การ์ดต้องห้าม</h3>
+        <ul>
+          <li>Commander ฟอร์แมตมีรายการการ์ดต้องห้าม (Banned List) ของตัวเอง ดูแลโดยคณะกรรมการ Commander Format Panel ซึ่งแยกจากรายการแบนของฟอร์แมตอื่น</li>
+          <li>ทุกโต๊ะควรตกลงกันล่วงหน้าเรื่อง house rules เพิ่มเติม เช่น การใช้ proxy หรือกฎเกี่ยวกับ salt/power creep เพราะ Commander เป็นฟอร์แมตที่เน้นเล่นแบบสังคม (social contract) เป็นหลัก</li>
+        </ul>
+
+        <h3>1.7 ระบบ Commander Brackets (ตัวช่วยจับคู่ระดับพลัง)</h3>
+        <p>Wizards of the Coast เปิดตัวระบบ "Commander Brackets" เพื่อช่วยผู้เล่นสื่อสารระดับความแรงของเด็คก่อนเริ่มเกม แบ่งเป็น 5 ระดับ:</p>
+        <table>
+          <thead><tr><th>Bracket</th><th>ชื่อ</th><th>ลักษณะ</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Exhibition</td><td>เด็คเพื่อความสนุกหรือธีมล้วนๆ เน้นคอนเซปต์มากกว่าความแรง</td></tr>
+            <tr><td>2</td><td>Core</td><td>เด็คธีมที่จัดตั้งแล้ว ความแรงใกล้เคียงเด็ค precon มาตรฐาน</td></tr>
+            <tr><td>3</td><td>Upgraded</td><td>อัปเกรดเหนือ precon ด้วยการ์ดที่ทำงานร่วมกัน (synergy) อนุญาตการ์ดแรงบางใบ (Game Changers ได้สูงสุด 3 ใบ)</td></tr>
+            <tr><td>4</td><td>Optimized</td><td>เด็คพลังสูง ใช้การ์ดที่ถูกกฎหมายได้ทุกใบโดยไม่มีข้อจำกัดเพิ่มเติมนอกจาก banned list มาตรฐาน</td></tr>
+            <tr><td>5</td><td>cEDH</td><td>เด็คระดับแข่งขัน ออกแบบมาเพื่อชนะทัวร์นาเมนต์และปรับตามเมต้า</td></tr>
+          </tbody>
+        </table>
+        <p class="rule-note">ระบบ Bracket เป็น "เครื่องมือสื่อสาร" ไม่ใช่กฎบังคับอย่างเป็นทางการในเกม — ใช้เพื่อให้ผู้เล่นที่โต๊ะเดียวกันคาดหวังระดับความแรงตรงกันก่อนเริ่มเกม โดยพิจารณาจากปัจจัยอย่าง จำนวน tutor, การก็อมโบ 2 ใบจบเกมเร็ว, การทำลายแลนด์จำนวนมาก (mass land denial), และการใช้เทิร์นเสริม (extra turns)</p>
+      </section>
+
+<section class="rule-section" id="orzhov">
+        <h2>2. กลไกเฉพาะสี Orzhov (ขาว/ดำ)</h2>
+        <p class="rule-note">เกี่ยวข้องกับเด็ค Commander สาย Teysa Karlov และเด็ค Aristocrats</p>
+        <h3>2.1 Afterlife</h3>
+        <ul>
+          <li>"Afterlife N" — เมื่อครีเจอร์นี้ตาย ให้สร้าง token ครีเจอร์ Spirit สีขาว/ดำ 1/1 มี Flying จำนวน N ตัว</li>
+          <li><strong>ปฏิสัมพันธ์กับ Teysa Karlov</strong>: Teysa Karlov ทำให้ triggered ability จากการตายของครีเจอร์ทำงาน<strong>สองครั้ง</strong></li>
+          <li>หมายความว่า Afterlife 1 บนครีเจอร์จะสร้าง <strong>2 Spirit token</strong> แทนที่จะเป็น 1 ตัวเมื่อมี Teysa อยู่</li>
+        </ul>
+        <h3>2.2 Extort</h3>
+        <ul>
+          <li>ทุกครั้งที่ร่ายสเปลล์ อาจจ่าย <img class="mana-sym" src="https://svgs.scryfall.io/card-symbols/WB.svg" alt="{W/B}" loading="lazy" onerror="this.replaceWith(this.alt)"></li>
+          <li>คู่ต่อสู้แต่ละคนเสียชีวิต 1 หน่วย และตัวเองได้ชีวิตเท่านั้นคืน</li>
+          <li>Extort หลายตัวทริกเกอร์แยกกัน</li>
+        </ul>
+        <h3>2.3 Haunt</h3>
+        <ul>
+          <li>เมื่อครีเจอร์ที่มี Haunt ตาย ให้ exile มัน แล้วไป "หลอกหลอน" (haunt) ครีเจอร์อีกตัว</li>
+          <li>เมื่อครีเจอร์ที่ถูกหลอกหลอนตาย ให้ทริกเกอร์ความสามารถ Haunt อีกครั้ง</li>
+        </ul>
+        <h3>2.4 การผสานพลังแบบสังเวย (Orzhov Aristocrats Style)</h3>
+        <ul>
+          <li><strong>Aristocrats</strong>: ครีเจอร์/เวทมนตร์ที่ให้รางวัลเมื่อครีเจอร์อื่นตาย (เช่น Blood Artist, Zulaport Cutthroat)</li>
+          <li><strong>Sac Outlets (ช่องทางสังเวย)</strong>: ครีเจอร์หรือ artifact ที่ให้สังเวยครีเจอร์ได้อย่างอิสระ (เช่น Viscera Seer, Ashnod's Altar)</li>
+          <li><strong>Recursive Creatures (ครีเจอร์ที่ฟื้นคืนได้)</strong>: ครีเจอร์ที่กลับมาจาก graveyard ได้ (เช่น Reassembling Skeleton)</li>
+        </ul>
+      </section>
+
+<section class="rule-section" id="edict-effects">
+  <h2>3. Edict Effects เจาะลึก (Sacrifice ที่คู่ต่อสู้เลือกเอง)</h2>
+  <h3>3.1 Edict effect คืออะไร</h3>
+  <ul>
+    <li>"Edict effect" คือเอฟเฟกต์ที่สั่งให้<strong>ผู้เล่นคนอื่นสังเวยถาวรของตัวเอง</strong> (เช่น "Target player sacrifices a creature") — ตัวอย่างคลาสสิก: Diabolic Edict, Chainer's Edict, Dictate of Erebos, Grave Pact</li>
+    <li><strong>ไม่ใช่ targeted spell/ability เสมอไป</strong> — ขึ้นอยู่กับถ้อยคำ: Diabolic Edict ใช้คำว่า "Target player sacrifices..." (มี target) แต่ Grave Pact/Dictate of Erebos ใช้ "Each opponent sacrifices..." (ไม่มี target เลย บังคับใช้กับทุกคนที่เข้าเงื่อนไขโดยอัตโนมัติ)</li>
+  </ul>
+  <h3>3.2 ทำไม Hexproof / Protection / Ward ถึงป้องกันไม่ได้ (กรณี "Each opponent")</h3>
+  <ul>
+    <li>Hexproof, Ward และ Protection from [สี/ประเภท] ทำงานกับ<strong>สเปลล์หรือความสามารถที่ "target" ตัวมันโดยตรง</strong>เท่านั้น (CR 702.11, 702.16)</li>
+    <li>เอฟเฟกต์แบบ "each opponent sacrifices a creature" ไม่ได้เล็งเป้าใครเลย มันแค่สั่งให้ผู้เล่นแต่ละคนทำ action — ครีเจอร์ hexproof/ward ของคู่ต่อสู้จึงยังถูกพิจารณาเป็นตัวเลือกสังเวยได้ตามปกติ</li>
+    <li>ถ้าเอฟเฟกต์ target ผู้เล่นตรงๆ (เช่น Diabolic Edict) ตัวผู้เล่นเองต้องไม่มี hexproof/protection ที่ป้องกันได้ แต่ครีเจอร์ที่ถูกเลือกสังเวยยังไม่เกี่ยวเพราะเลือกโดยผู้เล่นคนนั้นเอง ไม่ใช่ผู้ร่ายเลือก</li>
+  </ul>
+  <h3>3.3 ใครเป็นคนเลือกว่าจะสังเวยตัวไหน</h3>
+  <ul>
+    <li><strong>ผู้เล่นที่ต้องสังเวยเป็นคนเลือกเอง</strong> ไม่ใช่ผู้ร่ายสเปลล์ — ต่างจาก "Destroy target creature" ที่ผู้ร่ายเลือกเป้าหมาย</li>
+    <li>ถ้ามีครีเจอร์แค่ตัวเดียว ต้องสังเวยตัวนั้น ถ้าไม่มีครีเจอร์เลย ไม่มีผลอะไรเกิดขึ้น (ไม่ใช่ความล้มเหลว ไม่มี "ถ้าทำไม่ได้ ให้...")</li>
+  </ul>
+  <div class="rule-note">
+    <strong>ทำไม Dictate of Erebos เข้าเงื่อนไข Teysa แต่ตัวมันเองไม่ targeted เลย:</strong> Teysa เช็คแค่ว่า "การตายของครีเจอร์ทำให้ความสามารถทริกเกอร์ของถาวรที่คุณควบคุมทำงานหรือเปล่า" — Dictate of Erebos ทริกเกอร์จากการตาย (ของครีเจอร์ที่คุณควบคุม) เข้าเงื่อนไขนี้พอดี แม้ตัวเอฟเฟกต์ "สังเวย" ที่มันสร้างขึ้นทีหลังจะไม่ targeted เลยก็ตาม — สองเรื่องนี้เป็นคนละขั้นตอนกัน ดูกรณีศึกษาเต็มในหน้า<a href="rules-aristocrats.html#token-doubling-case-study">กรณีศึกษา Aristocrats</a>
+  </div>
+</section>
+
+
+<section class="rule-section" id="infinite-combo">
+  <h2>4. กฎ Infinite Combo และ Loop (CR 731, CR 104.4b)</h2>
+  <h3>4.1 เมื่อไหร่ถึงเรียกว่า "Loop"</h3>
+  <ul>
+    <li>Loop คือชุดการกระทำที่ทำซ้ำได้ไม่จำกัด และแต่ละรอบจบลงในสถานะที่วนซ้ำได้เรื่อยๆ (มักเป็นสถานะเดิมของบอร์ด บวกทรัพยากรที่เพิ่มขึ้นหรือเท่าเดิมในแต่ละรอบ)</li>
+    <li>ถ้า loop เป็น "การกระทำที่บังคับ" (mandatory) และไม่มีทางหยุดได้เลยโดยผู้เล่นคนใดเลย เกมจะจบลงเป็น<strong>เสมอ (draw)</strong> ทันที (CR 104.4b) — เกิดได้ยาก เพราะปกติผู้เล่นเลือกได้ว่าจะทำคอมโบต่อหรือไม่</li>
+  </ul>
+  <h3>4.2 Taking Shortcuts (CR 731)</h3>
+  <ul>
+    <li>ถ้า loop เป็นทางเลือก (optional) ผู้เล่นไม่จำเป็นต้องทำซ้ำจริงๆ ทีละครั้งจนกว่าจะจบ — สามารถ "เสนอ shortcut" ได้: บอกคู่ต่อสู้ว่ากำลังจะเข้า loop อะไร แต่ละรอบทำอะไรบ้าง แล้วเสนอจำนวนรอบ (หรือ "ไม่จำกัดจนกว่า X จะเกิดขึ้น") พร้อมผลลัพธ์สุดท้าย</li>
+    <li>คู่ต่อสู้มีสิทธิ์: (ก) ยอมรับข้อเสนอ (ผลลัพธ์เกิดขึ้นทันที) หรือ (ข) ขอให้ทำจำนวนรอบน้อยกว่านั้นเพื่อดูว่ามีอะไรตอบโต้ระหว่างทางไหม — แต่<strong>ไม่มีสิทธิ์ปฏิเสธ loop ไปเลย</strong> ถ้าผู้เล่นมีทรัพยากรพอที่จะทำมันได้จริง</li>
+    <li>ถ้าคอมโบให้ผลลัพธ์ที่ชนะเกมได้ (เช่น ดูดชีวิตได้ไม่จำกัด) ผู้เล่นประกาศได้เลยว่า "ทำ loop นี้จนกว่าคู่ต่อสู้ทุกคนจะชีวิตเหลือ 0" แทนที่จะนับจำนวนรอบจริง</li>
+  </ul>
+  <div class="rule-note">
+    <strong>ตัวอย่างในเด็ค Aristocrats:</strong> ถ้าเด็คมี sac outlet ที่ไม่มีต้นทุนมานา ผนวกกับครีเจอร์ที่กลับเข้าสนามได้ฟรีไม่จำกัดจำนวนครั้ง และมี Blood Artist/Zulaport Cutthroat อยู่ด้วย นี่คือ loop ที่ดูดชีวิตคู่ต่อสู้ได้ไม่จำกัด — แทนที่จะสังเวยจริงทีละรอบที่โต๊ะ ผู้เล่นประกาศ shortcut ได้เลยว่า "วนลูปนี้จนกว่าคู่ต่อสู้ทุกคนชีวิตเหลือ 0" ไม่ต้องนับมือจริงเป็นร้อยๆ รอบ
+  </div>
+</section>
+
+      </article>
+
+      <p class="rules-source">เอกสารนี้เป็นการอ้างอิงอย่างย่อ แปลและเรียบเรียงเป็นภาษาไทยเพื่อการศึกษา สำหรับกฎ Comprehensive Rules ฉบับเต็มและกฎ Commander อย่างเป็นทางการ โปรดดูที่ <a href="https://magic.wizards.com/en/rules" target="_blank" rel="noopener">magic.wizards.com/en/rules</a> และ <a href="https://mtgcommander.net/index.php/rules/" target="_blank" rel="noopener">mtgcommander.net</a></p>
+
+      <nav class="rules-page-nav" aria-label="หน้ากฎถัดไป/ก่อนหน้า">
+        <a class="rp-prev" href="rules-mechanics.html">กลไกและเอฟเฟกต์</a>
+        <a class="rp-next" href="rules-aristocrats.html">กรณีศึกษา Aristocrats</a>
+      </nav>
+
+      <p class="back-to-toc"><a href="index.html">← กลับสู่ห้องสมุดเรื่องราว</a></p>
+    </div>
+
+    <footer class="archive-footer">
+      <p>สรุปโดยอิงจากกฎทางการของ Wizards of the Coast · ไม่มีความเกี่ยวข้องกับ Wizards of the Coast</p>
+    </footer>
+  </main>
+</div>
+
+<script src="codex-nav.js"></script>
+</body>
+</html>

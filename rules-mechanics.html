@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>กฎกติกา Magic: The Gathering (2/4) — กลไกและเอฟเฟกต์ | MTG Story Codex</title>
+<meta name="description" content="สรุปกฎ Magic: The Gathering ฉบับภาษาไทย ส่วนที่ 2: Triggered Abilities, Token, State-Based Actions, การตายพร้อมกัน vs ทีละตัว, Replacement/Copy Effects, Graveyard, ระบบ Layer, Double-Faced Card และอภิธานศัพท์คีย์เวิร์ด">
+<meta property="og:title" content="กฎกติกา Magic: The Gathering (2/4) — กลไกและเอฟเฟกต์ | MTG Story Codex">
+<meta property="og:description" content="สรุปกฎ Magic: The Gathering ฉบับภาษาไทย ส่วนที่ 2: Triggered Abilities, Token, State-Based Actions, การตายพร้อมกัน vs ทีละตัว, Replacement/Copy Effects, Graveyard, ระบบ Layer, Double-Faced Card และอภิธานศัพท์คีย์เวิร์ด">
+<meta property="og:image" content="./og-image.png">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Noto+Sans+Thai:wght@400;500;600;700&family=Noto+Serif+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<script>window.CODEX_BASE="./";window.CODEX_CHAPTER=null;</script>
+
+<div class="sidebar-backdrop"></div>
+<div class="mobile-topbar">
+  <button class="sidebar-toggle" type="button" aria-label="เปิดเมนูสารบัญ">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg>
+  </button>
+  <span class="mobile-topbar-title">MTG Story Codex</span>
+</div>
+
+<div class="archive-shell">
+  <aside class="archive-sidebar">
+    <div class="sidebar-brand">
+      <a class="sidebar-brand-link" href="index.html">MTG Story Codex</a>
+      <p class="sidebar-brand-sub">Story Archive</p>
+    </div>
+    <div class="sidebar-search">
+      <div class="sidebar-search-box">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="search" id="codex-search" placeholder="ค้นหาบท ชุดการ์ด หรือชื่อตัวละคร…" aria-label="ค้นหาบท">
+      </div>
+    </div>
+    <nav class="sidebar-nav" id="sidebar-nav" aria-label="สารบัญ"></nav>
+  </aside>
+
+  <main class="archive-main">
+    <div class="library-col rules-col">
+      <p class="kicker">Magic: The Gathering · Story Codex · ส่วนที่ 2/4 · กลไกและเอฟเฟกต์</p>
+      <h1 class="library-title">กฎกติกา Magic: The Gathering</h1>
+      <p class="library-intro">Triggered Abilities, กฎ Token, State-Based Actions, การตายพร้อมกันกับทีละตัว, Replacement Effects, Copy Effects, Graveyard/Exile, ระบบ 7 Layers, Double-Faced Card และอภิธานศัพท์คีย์เวิร์ดทั้งหมด</p>
+
+      <nav class="rules-page-tabs" aria-label="สลับหน้ากฎ">
+        <a href="rules.html" class=""><span class="tab-num">1</span>พื้นฐานเกม</a>
+        <a href="rules-mechanics.html" class="is-active"><span class="tab-num">2</span>กลไก & เอฟเฟกต์</a>
+        <a href="rules-commander.html" class=""><span class="tab-num">3</span>Commander & Orzhov</a>
+        <a href="rules-aristocrats.html" class=""><span class="tab-num">4</span>กรณีศึกษา</a>
+      </nav>
+
+      <nav class="rules-quicknav" aria-label="ลัดไปยังหมวด">
+        <a href="#triggered">1. Triggered</a>
+        <a href="#tokens">2. Token</a>
+        <a href="#sba">3. SBA</a>
+        <a href="#death-timing">4. ตายพร้อมกัน/ทีละตัว</a>
+        <a href="#replacement">5. Replacement</a>
+        <a href="#copy">6. Copy Effects</a>
+        <a href="#graveyard">7. Graveyard/Exile</a>
+        <a href="#edge-cases">8. กรณีพิเศษ</a>
+        <a href="#keywords">9. คีย์เวิร์ด</a>
+      </nav>
+
+      <article class="rules-body">
+
+<section class="rule-section" id="triggered">
+        <h2>1. ความสามารถแบบ Triggered</h2>
+        <h3>1.1 คำที่ใช้บอกทริกเกอร์</h3>
+        <ul>
+          <li><strong>"When"</strong> — ทริกเกอร์ครั้งเดียวเมื่อเงื่อนไขสำเร็จ</li>
+          <li><strong>"Whenever"</strong> — ทริกเกอร์ทุกครั้งที่เงื่อนไขสำเร็จ</li>
+          <li><strong>"At"</strong> — ทริกเกอร์ ณ เวลาที่กำหนดไว้ (เช่น "At the beginning of your upkeep")</li>
+        </ul>
+        <h3>1.2 จังหวะการทริกเกอร์</h3>
+        <ul>
+          <li>ทริกเกอร์ขึ้น stack ในครั้งถัดไปที่ผู้เล่นคนใดคนหนึ่งจะได้รับ priority</li>
+          <li>ผู้ควบคุมความสามารถที่ถูกทริกเกอร์เป็นผู้ควบคุมมันบน stack</li>
+          <li>ถ้ามีหลายทริกเกอร์จากเหตุการณ์เดียวกัน: active player จัดลำดับทริกเกอร์ของตนก่อน จากนั้นผู้เล่นที่ไม่ใช่ active player จึงจัดลำดับ</li>
+        </ul>
+        <h3>1.3 ทริกเกอร์ "Dies" (ตาย)</h3>
+        <ul>
+          <li>ครีเจอร์ "ตาย" เมื่อมันเคลื่อนจากสนามไปยัง graveyard</li>
+          <li>ทริกเกอร์ที่เช็ค "when X dies" จะดูการ์ดใบนั้นใน graveyard ณ ตอน resolve</li>
+        </ul>
+      </section>
+
+<section class="rule-section" id="tokens">
+        <h2>2. กฎ Token</h2>
+        <h3>2.1 พื้นฐาน</h3>
+        <ul>
+          <li>Token ถูกสร้างขึ้นจากเอฟเฟกต์ของสเปลล์หรือความสามารถ</li>
+          <li>Token เป็นถาวร (permanent) ตราบใดที่อยู่บนสนาม</li>
+          <li>เมื่อ token ออกจากสนาม มันจะสลายหายไป (ไม่ไป graveyard, exile หรือที่อื่นใด)</li>
+          <li>Token ที่ควรกลับไปมือ จะสลายหายไปเฉยๆ</li>
+        </ul>
+        <h3>2.2 การก็อปปี้ Token</h3>
+        <ul>
+          <li>ถ้าก็อปปี้ token ตัวที่ก็อปมาก็เป็น token เช่นกัน</li>
+          <li>Token ไม่นับเป็นการ์ด แต่เป็นครีเจอร์, artifact ฯลฯ ได้</li>
+        </ul>
+      </section>
+
+<section class="rule-section" id="sba">
+        <h2>3. State-Based Actions (SBA)</h2>
+        <p>State-based actions ถูกตรวจสอบตลอดเวลาโดยอัตโนมัติ โดยไม่ต้องมีผู้เล่นคนใดทำการกระทำใดๆ</p>
+        <h3>3.1 SBA ที่พบบ่อย</h3>
+        <ul>
+          <li>ครีเจอร์ที่มีความอึด (toughness) 0 หรือน้อยกว่า → ตาย</li>
+          <li>ครีเจอร์ที่มีดาเมจ ≥ ความอึด → ตาย (ยกเว้นมี Indestructible)</li>
+          <li>ผู้เล่นที่มีชีวิต 0 หรือน้อยกว่า → แพ้</li>
+          <li>ผู้เล่นที่ต้องจั่วแต่ไม่มีการ์ดเหลือ → แพ้</li>
+          <li>Planeswalker ที่มี loyalty 0 → ตาย</li>
+          <li><strong>กฎ Legend</strong> (Legend Rule): ถ้าถาวรระดับตำนาน (legendary) เหมือนกัน 2 ใบอยู่บนสนามภายใต้การควบคุมของผู้เล่นคนเดียวกัน → ผู้เล่นคนนั้นเลือกเก็บไว้ 1 ใบ ที่เหลือลง graveyard</li>
+          <li>ผู้เล่นที่มีเคาน์เตอร์พิษครบ 10 → แพ้</li>
+        </ul>
+      </section>
+
+<section class="rule-section" id="death-timing">
+  <h2>4. ตายพร้อมกัน (Simultaneous) vs ตายทีละตัว (Sequential)</h2>
+  <h3>4.1 ทำไมเรื่องนี้สำคัญกับเด็ค Aristocrats</h3>
+  <p>Board wipe (เช่น Toxic Deluge, Wrath of God) ทำให้ครีเจอร์หลายตัวตายพร้อมกันด้วย State-Based Action ครั้งเดียว (CR 704.3) ต่างจากการสังเวยทีละตัวผ่าน sac outlet ที่ตายเรียงกันไปทีละตัว — คำถามที่เจอบ่อยคือ ทริกเกอร์ตายจะทำงานน้อยลงไหมถ้าตายพร้อมกัน?</p>
+  <h3>4.2 กฎจริง: ตัวไหนตายก็ทริกเกอร์แยกกันเสมอ</h3>
+  <ul>
+    <li>แม้ครีเจอร์หลายตัวจะตายพร้อมกันในเหตุการณ์ SBA เดียว ระบบยังนับว่า<strong>แต่ละตัวที่ตาย</strong>เป็นเหตุการณ์ที่ต้องเช็คทริกเกอร์แยกกัน (CR 603.3d, 603.6e) — ถ้าคุณมี Blood Artist และครีเจอร์ 5 ตัวตายพร้อมกันจาก board wipe, Blood Artist จะทริกเกอร์ <strong>5 ครั้ง</strong> เหมือนตายทีละตัว 5 รอบทุกประการ ไม่ใช่ครั้งเดียว</li>
+    <li>หลักการนี้ใช้กับการ์ดกลุ่ม death payoff ส่วนใหญ่ที่เขียนแบบ "whenever [X] creature dies" — Blood Artist, Zulaport Cutthroat, Elenda, Bastion of Remembrance ล้วนได้ผลตอบแทนเท่ากัน ไม่ว่าจะตายพร้อมกันหรือทีละตัว ตราบใดที่จำนวนครีเจอร์ที่ตายเท่ากัน</li>
+  </ul>
+  <div class="rule-note">
+    <strong>แก้ความเข้าใจผิดเรื่อง Elenda, the Dusk Rose:</strong> ข้อความจริงของ Elenda คือ "Whenever another creature dies, put a +1/+1 counter on Elenda" — สังเกตว่า<strong>ไม่มีคำว่า "you control"</strong> ครีเจอร์ตัวไหนตายก็ได้ (รวมของคู่ต่อสู้ด้วย) และเธอได้เคาน์เตอร์เท่ากันไม่ว่าจะตายพร้อมกันหรือทีละตัว — บอร์ดไวป์ที่ฆ่าครีเจอร์ 6 ตัวทั่วสนามพร้อมกันให้ Elenda ได้ +1/+1 counter 6 อัน เท่ากับตายทีละตัว 6 รอบทุกประการ ไม่ได้ "จำกัดผลตอบแทน" อย่างที่มักเข้าใจผิดกัน — ยิ่งไปกว่านั้น เพราะเธอนับครีเจอร์ของคู่ต่อสู้ด้วย บอร์ดไวป์ทั้งสนามจึงเป็นผลดีกับเธอเป็นพิเศษ
+  </div>
+  <h3>4.3 กรณีที่ "ตายพร้อมกัน" ให้ผลต่างจริง</h3>
+  <ul>
+    <li>การ์ดบางใบเขียนแบบ "Whenever one or more creatures you control die" (ดูตารางเทียบถ้อยคำในหน้ากรณีศึกษา) — แบบนี้ทริกเกอร์แค่<strong>ครั้งเดียว</strong>ไม่ว่าจะตายพร้อมกันกี่ตัว ดังนั้นเฉพาะการ์ดกลุ่มนี้เท่านั้นที่ "ตายทีละตัว" ให้ผลตอบแทนมากกว่า "ตายพร้อมกัน" จริง — ต้องอ่านถ้อยคำบนการ์ดให้ละเอียดเสมอ</li>
+    <li>Last Known Information (LKI, CR 603.10): ถ้าทริกเกอร์ต้องเช็คคุณสมบัติของครีเจอร์ตอนตาย (เช่น "ถ้าครีเจอร์ที่ตายมีพลัง 2 หรือน้อยกว่า") ระบบใช้ค่าพลัง/ความอึดล่าสุดที่ทราบก่อนมันออกจากสนาม ไม่ว่าจะตายพร้อมกันหรือทีละตัวก็ใช้หลักการเดียวกัน ไม่มีความต่าง</li>
+  </ul>
+</section>
+
+
+<section class="rule-section" id="replacement">
+        <h2>5. Replacement Effects (เอฟเฟกต์แทนที่)</h2>
+        <h3>5.1 หลักการทำงาน</h3>
+        <ul>
+          <li>Replacement effect เปลี่ยนวิธีที่เหตุการณ์หนึ่งเกิดขึ้น — มันไม่ได้ทริกเกอร์หลังเหตุการณ์ แต่ <strong>แทนที่</strong> เหตุการณ์นั้นไปเลย</li>
+          <li>ใช้คำว่า "instead" (แทน)</li>
+          <li>ตัวอย่าง: "If X would die, exile it instead" (ถ้า X จะตาย ให้ exile แทน) — การ์ดจะไม่มีวันไป graveyard</li>
+        </ul>
+        <h3>5.2 การใช้ Replacement หลายอย่างพร้อมกัน</h3>
+        <ul>
+          <li>ถ้ามี replacement หลายอย่างที่ใช้ได้พร้อมกัน ผู้เล่น/ผู้ควบคุมที่ได้รับผลกระทบเป็นผู้เลือกลำดับ</li>
+          <li>เมื่อเหตุการณ์ถูกแทนที่แล้ว เหตุการณ์ใหม่สามารถถูกแทนที่ได้อีก (แต่ต้องไม่ใช่เอฟเฟกต์เดียวกัน)</li>
+        </ul>
+      </section>
+
+<section class="rule-section" id="copy">
+        <h2>6. Copy Effects (เอฟเฟกต์การก็อปปี้)</h2>
+        <h3>6.1 การก็อปปี้สเปลล์</h3>
+        <ul>
+          <li>ตัวก็อปมีคุณสมบัติเดียวกัน (ชื่อ, ต้นทุนมานา, ประเภท, ข้อความ, เป้าหมาย)</li>
+          <li>ตัวก็อปไม่ถูกนับว่า "ถูกร่าย" (cast) — เพียงแค่ถูกวางบน stack</li>
+          <li>สามารถเลือกเป้าหมายใหม่ให้ตัวก็อปได้</li>
+        </ul>
+        <h3>6.2 การก็อปปี้ถาวร (Permanent)</h3>
+        <ul>
+          <li>ตัวก็อปมีคุณสมบัติตามที่พิมพ์บนการ์ดต้นฉบับ</li>
+          <li>จะ<strong>ไม่</strong>ก็อปเคาน์เตอร์, Aura/Equipment ที่แนบอยู่ หรือประวัติ "เข้าสนามเมื่อไร"</li>
+        </ul>
+      </section>
+
+<section class="rule-section" id="graveyard">
+        <h2>7. Graveyard และ Exile</h2>
+        <h3>7.1 Graveyard</h3>
+        <ul>
+          <li>การ์ดจะไปที่ graveyard ของเจ้าของแบบหงายหน้า</li>
+          <li>ลำดับไม่สำคัญในเกมแบบสบายๆ (casual) แต่อาจมีผลกับบางเอฟเฟกต์</li>
+          <li>ผู้เล่นสามารถดู graveyard ของใครก็ได้ทุกเมื่อ</li>
+        </ul>
+        <h3>7.2 Exile</h3>
+        <ul>
+          <li>การ์ดที่ถูก exile ถือเป็น "ถูกนำออกจากเกม" ในบริบทส่วนใหญ่</li>
+          <li>บางการ์ดมีปฏิสัมพันธ์กับโซน exile (เช่น "cast spells exiled with...")</li>
+          <li>การ์ดใน exile จะหงายหน้าไว้ เว้นแต่การ์ดจะระบุให้คว่ำหน้าโดยเฉพาะ</li>
+        </ul>
+      </section>
+
+<section class="rule-section" id="edge-cases">
+        <h2>8. ปฏิสัมพันธ์และกรณีพิเศษที่ควรรู้</h2>
+        <h3>8.1 "Dies" กับ การออกจากสนาม</h3>
+        <ul>
+          <li>"When X dies" ทริกเกอร์เมื่อครีเจอร์เคลื่อนจากสนามไปยัง <strong>graveyard</strong> โดยเฉพาะเท่านั้น</li>
+          <li>ถ้าครีเจอร์ถูก exile แทนที่จะตาย ทริกเกอร์ "dies" จะ<strong>ไม่</strong>ทำงาน</li>
+          <li>ครีเจอร์ Indestructible ยังตายได้จากเอฟเฟกต์ที่บอกให้ "sacrifice" หรือลด -X/-X</li>
+        </ul>
+        <h3>8.2 Sacrifice กับ Destroy</h3>
+        <ul>
+          <li><strong>Destroy</strong>: ป้องกันได้ด้วย Regeneration หรือ Indestructible</li>
+          <li><strong>Sacrifice</strong>: ป้องกันไม่ได้ — แม้ครีเจอร์ Indestructible ก็ถูกสังเวยได้</li>
+        </ul>
+                <h3>8.3 Regeneration (การงอกใหม่)</h3>
+        <ul>
+          <li>Regeneration เป็น "shield" (replacement effect ชนิดพิเศษ, CR 701.16) ที่ต้องตั้งไว้ล่วงหน้า ก่อนเหตุการณ์จะเกิด — ต้องร่าย/แอคทิเวตความสามารถ "You may regenerate target creature" ก่อนที่ครีเจอร์จะถูกทำลาย ไม่ใช่หลังจากนั้น</li>
+          <li>เมื่อ shield ถูกสร้างขึ้น มันจะรอครั้งต่อไปที่ครีเจอร์ตัวนั้น "จะถูกทำลาย" (would be destroyed) แล้วแทนที่เหตุการณ์นั้นด้วย: คลายแท็ป, เอาดาเมจที่สะสมออกทั้งหมด, เอาออกจากการต่อสู้ และไม่ถูกทำลาย</li>
+          <li>Shield ใช้ได้ครั้งเดียวแล้วหมดไป ไม่ว่าจะถูกใช้จริงหรือไม่ก็ตาม เมื่อครีเจอร์ออกจากสนามหรือจบเทิร์น</li>
+          <li><strong>ป้องกันไม่ได้กับ</strong>: Sacrifice, exile, ครีเจอร์ที่ความอึดเหลือ 0 หรือน้อยกว่าจาก SBA — เพราะสิ่งเหล่านี้ไม่ใช่ "destroy"</li>
+          <li>ต่างจาก Indestructible ตรงที่ Indestructible เป็นเอฟเฟกต์ถาวร (static) ใช้ได้ไม่จำกัดจำนวนครั้งและไม่ต้องตั้งไว้ล่วงหน้า ส่วน Regeneration เป็นโล่ที่ต้องเตรียมก่อนและใช้ได้แค่ครั้งเดียว</li>
+        </ul>
+        <h3>8.4 "Leaves the Battlefield" (LTB — ออกจากสนาม)</h3>
+        <ul>
+          <li>ทริกเกอร์ที่เช็คคุณสมบัติของการ์ดตอนออกจากสนาม จะดูสถานะล่าสุดที่ทราบ (last known state) บนสนาม</li>
+          <li>ตัวอย่าง: "When equipped creature dies" — Equipment จะเช็คว่ามันแนบกับอะไรอยู่ก่อนที่ครีเจอร์นั้นจะออกจากสนาม</li>
+        </ul>
+        <h3>8.5 จังหวะของ Activated Ability</h3>
+        <ul>
+          <li>ถ้าไม่ได้ระบุว่า "activate only as a sorcery" ความสามารถแบบ activated สามารถใช้ได้ด้วยความเร็ว instant</li>
+          <li>Mana ability (ผลิตมานา) ไม่ใช้ stack — resolve ทันที</li>
+        </ul>
+        <h3>8.6 ระบบ Layer (สำหรับเอฟเฟกต์ต่อเนื่อง)</h3>
+        <p>เมื่อถาวรหนึ่งใบถูกแก้ไขคุณสมบัติโดยเอฟเฟกต์ต่อเนื่อง (continuous effect) หลายอย่างพร้อมกัน เกมจะไม่ใช้ "ลำดับเวลา" ในการคำนวณอย่างเดียว แต่จะไล่คำนวณตาม <strong>7 Layer</strong> ตามลำดับตายตัวนี้ก่อนเสมอ — ภายใน Layer เดียวกันจึงค่อยเรียงตาม timestamp (การ์ดที่มีผลก่อนคำนวณก่อน) หรือตาม dependency:</p>
+        <table>
+          <thead><tr><th>Layer</th><th>ผลที่เปลี่ยน</th><th>ตัวอย่างการ์ด/เอฟเฟกต์</th></tr></thead>
+          <tbody>
+            <tr><td><strong>1</strong></td><td>เอฟเฟกต์การก็อปปี้ (Copy)</td><td>Clone เข้าสนามเป็นสำเนาของครีเจอร์อื่น — ก็อปชื่อ, ต้นทุน, ประเภท, P/T, ข้อความทั้งหมด</td></tr>
+            <tr><td><strong>2</strong></td><td>เอฟเฟกต์เปลี่ยนผู้ควบคุม (Control)</td><td>Mind Control — เปลี่ยนผู้ควบคุมถาวรเป้าหมายมาเป็นของตน</td></tr>
+            <tr><td><strong>3</strong></td><td>เอฟเฟกต์เปลี่ยนข้อความ (Text)</td><td>Mind Bend — เปลี่ยนคำในข้อความกฎ เช่นเปลี่ยนชื่อสีที่การ์ดอ้างถึง</td></tr>
+            <tr><td><strong>4</strong></td><td>เอฟเฟกต์เปลี่ยนประเภท (Type)</td><td>Song of the Dryads (ถาวรที่ถูกผูกกลายเป็น Forest เพิ่ม) · Blood Moon (nonbasic land ทุกใบกลายเป็น Mountain)</td></tr>
+            <tr><td><strong>5</strong></td><td>เอฟเฟกต์เปลี่ยนสี (Color)</td><td>Painter's Servant — ถาวรและสเปลล์ทุกใบเป็นสีที่เลือกเพิ่มเข้าไป</td></tr>
+            <tr><td><strong>6</strong></td><td>เอฟเฟกต์เพิ่ม/ลบความสามารถ (Ability)</td><td>Rancor (มอบ Trample) · Humility / Silence (ลบความสามารถทั้งหมด)</td></tr>
+            <tr><td><strong>7</strong></td><td>เอฟเฟกต์เปลี่ยนพลัง/ความอึด (P/T) — แบ่งเป็น 4 sub-layer</td><td>ดูตารางย่อย 7a–7d ด้านล่าง</td></tr>
+          </tbody>
+        </table>
+        <table>
+          <thead><tr><th>Sub-layer 7</th><th>ผลที่เปลี่ยน</th><th>ตัวอย่าง</th></tr></thead>
+          <tbody>
+            <tr><td><strong>7a</strong></td><td>Characteristic-Defining Ability (CDA) — P/T ที่นิยามจากคุณสมบัติการ์ดเอง</td><td>Tarmogoyf ("*/1+*" อิงจากประเภทการ์ดใน graveyard ทุกใบ)</td></tr>
+            <tr><td><strong>7b</strong></td><td>เอฟเฟกต์ที่ "กำหนดค่า" P/T ตรงๆ (set to)</td><td>Ovinize ("target creature becomes a 0/1")</td></tr>
+            <tr><td><strong>7c</strong></td><td>เอฟเฟกต์ที่ "บวก/ลบ" P/T (รวมเคาน์เตอร์ +1/+1)</td><td>Giant Growth (+3/+3) · Glorious Anthem (+1/+1 ให้ครีเจอร์ของตน) · เคาน์เตอร์ +1/+1</td></tr>
+            <tr><td><strong>7d</strong></td><td>เอฟเฟกต์ "สลับ" พลัง/ความอึด</td><td>เอฟเฟกต์ประเภท "switch power and toughness until end of turn"</td></tr>
+          </tbody>
+        </table>
+
+        <div class="rule-note">
+          <strong>ตัวอย่างการคำนวณจริง:</strong> Grizzly Bears (2/2) ตัวหนึ่งถูกเอฟเฟกต์ 3 อย่างนี้ส่งผลพร้อมกัน — (ก) โดน <em>Ovinize</em> เล็ง กลายเป็น "0/1" (Layer 7b) (ข) ควบคุมโดยผู้เล่นที่มี <em>Glorious Anthem</em> ในสนาม ให้ +1/+1 กับครีเจอร์ของตน (Layer 7c) (ค) ควบคุมโดยผู้เล่นที่มี <em>Adaptive Automaton</em> ประกาศ type เป็น Bear ให้ +1/+1 กับ Bear (Layer 7c เช่นกัน)
+          <br><br>
+          วิธีคิด: เกมไล่คำนวณ Layer 7b ก่อน (Ovinize กำหนดค่าฐานเป็น 0/1) แล้วจึงไป Layer 7c ซึ่งมี 2 เอฟเฟกต์เรียงตาม timestamp บวกสะสมกัน (+1/+1 และ +1/+1) → ผลลัพธ์สุดท้ายคือ <strong>0/1 + 1/1 + 1/1 = 2/3</strong> — ไม่ใช่ "2/2 ปกติ" และไม่ใช่ "0/1 เฉยๆ" เพราะ Layer 7b ทำงานก่อน Layer 7c เสมอ ไม่ว่า Ovinize จะถูกร่ายก่อนหรือหลังการ์ดอีกสองใบ
+        </div>
+
+        <div class="rule-note">
+          <strong>ตัวอย่างข้าม Layer:</strong> ถ้าครีเจอร์ตัวเดียวกันโดน <em>Turn to Frog</em> ("target creature loses all abilities and becomes a Blue Frog with base power and toughness 1/1") ด้วย — Turn to Frog เปลี่ยนประเภทย่อยเป็น Frog (Layer 4), เปลี่ยนสีเป็นน้ำเงิน (Layer 5), ลบความสามารถทั้งหมด (Layer 6) และกำหนดฐาน P/T เป็น 1/1 (Layer 7b) ทั้งหมดนี้มาจากการ์ดใบเดียวแต่ถูก "แยก" ไปคำนวณคนละ Layer ตามชนิดของผล ไม่ใช่คำนวณรวดเดียวตามข้อความบนการ์ด — ถ้ามี Glorious Anthem อยู่ด้วย ผลลัพธ์จะยังเป็น 1/1 + 1/1 = 2/2 เพราะ +1/+1 อยู่ Layer 7c ซึ่งมาทีหลัง Layer 7b เสมอ
+        </div>
+
+        <h3>8.7 Double-Faced Card (DFC)</h3>
+        <ul>
+          <li>Transforming DFC: มีด้านกลางวัน/กลางคืน; การพลิกด้านเกิดจากทริกเกอร์หรือแอคทิเวต</li>
+          <li>Modal DFC (MDFC): เลือกด้านที่จะเล่น; ด้านหลังมักเป็นแลนด์</li>
+        </ul>
+      </section>
+
+<section class="rule-section" id="keywords">
+        <h2>9. อภิธานศัพท์คำสำคัญ (Keyword Glossary)</h2>
+        <table>
+          <thead><tr><th>คีย์เวิร์ด</th><th>คำอธิบายย่อ</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Affinity</strong></td><td>ต้นทุนลดลงตามจำนวน artifact ที่ควบคุมอยู่</td></tr>
+            <tr><td><strong>Annihilator</strong></td><td>เมื่อโจมตี บังคับให้คู่ต่อสู้ทิ้งถาวร</td></tr>
+            <tr><td><strong>Bestow</strong></td><td>ร่ายเป็น Aura หรือเป็นครีเจอร์ก็ได้</td></tr>
+            <tr><td><strong>Cascade</strong></td><td>Exile การ์ดไปเรื่อยๆ จนเจอใบที่ถูกกว่า; ร่ายฟรี</td></tr>
+            <tr><td><strong>Convoke</strong></td><td>แท็ปครีเจอร์เพื่อช่วยจ่ายต้นทุนมานา</td></tr>
+            <tr><td><strong>Delve</strong></td><td>Exile การ์ดใน graveyard เพื่อจ่าย generic mana</td></tr>
+            <tr><td><strong>Embalm</strong></td><td>Exile จาก graveyard เพื่อสร้าง token สำเนา</td></tr>
+            <tr><td><strong>Enlist</strong></td><td>แท็ปครีเจอร์ตัวอื่นเพื่อเพิ่มพลังให้ผู้โจมตี</td></tr>
+            <tr><td><strong>Equip</strong></td><td>ความสามารถความเร็ว sorcery ใช้แนบ Equipment กับครีเจอร์</td></tr>
+            <tr><td><strong>Escape</strong></td><td>ร่ายจาก graveyard; ต้อง exile การ์ดอื่นเป็นต้นทุนเพิ่ม</td></tr>
+            <tr><td><strong>Eternalize</strong></td><td>คล้าย Embalm แต่สร้างสำเนา Zombie ดำ 4/4</td></tr>
+            <tr><td><strong>Explore</strong></td><td>เปิดการ์ดใบบนสุด; ถ้าเป็นแลนด์ใส่มือ, ถ้าไม่ใช่ใส่เคาน์เตอร์</td></tr>
+            <tr><td><strong>Exploit</strong></td><td>เมื่อเข้าสนาม อาจสังเวยครีเจอร์เพื่อรับเอฟเฟกต์</td></tr>
+            <tr><td><strong>Exert</strong></td><td>แท็ปและไม่คลายแท็ปเทิร์นถัดไปเพื่อรับเอฟเฟกต์พิเศษ</td></tr>
+            <tr><td><strong>Fabricate</strong></td><td>ใส่เคาน์เตอร์ +1/+1 หรือสร้าง token Servo</td></tr>
+            <tr><td><strong>Flash</strong></td><td>ร่ายได้ด้วยความเร็ว instant</td></tr>
+            <tr><td><strong>Flashback</strong></td><td>ร่ายจาก graveyard; exile หลังใช้</td></tr>
+            <tr><td><strong>Foretell</strong></td><td>จ่าย <img class="mana-sym" src="https://svgs.scryfall.io/card-symbols/2.svg" alt="{2}" loading="lazy" onerror="this.replaceWith(this.alt)"> เพื่อ exile คว่ำหน้า; ร่ายทีหลังด้วยต้นทุนลด</td></tr>
+            <tr><td><strong>Hexproof</strong></td><td>ไม่สามารถถูกเล็งโดยสเปลล์/ความสามารถของคู่ต่อสู้</td></tr>
+            <tr><td><strong>Improvise</strong></td><td>แท็ป artifact เพื่อช่วยจ่ายต้นทุนมานา</td></tr>
+            <tr><td><strong>Infect</strong></td><td>สร้างดาเมจเป็นเคาน์เตอร์ -1/-1 กับครีเจอร์, เคาน์เตอร์พิษกับผู้เล่น</td></tr>
+            <tr><td><strong>Landfall</strong></td><td>ทริกเกอร์ทุกครั้งที่แลนด์เข้าสนามภายใต้การควบคุมของตน</td></tr>
+            <tr><td><strong>Madness</strong></td><td>ถ้าถูกทิ้ง อาจร่ายด้วยต้นทุน Madness</td></tr>
+            <tr><td><strong>Morbid</strong></td><td>ได้เอฟเฟกต์เสริมถ้ามีครีเจอร์ตายในเทิร์นนี้</td></tr>
+            <tr><td><strong>Mutate</strong></td><td>รวมร่างกับครีเจอร์ที่ไม่ใช่ human; เหลือครีเจอร์เดียว รวมความสามารถ</td></tr>
+            <tr><td><strong>Ninjutsu</strong></td><td>สลับตัวกับผู้โจมตีที่ไม่ถูกป้องกัน; จ่ายต้นทุน</td></tr>
+            <tr><td><strong>Overload</strong></td><td>จ่ายเพิ่มเพื่อเปลี่ยนเป้าหมายจาก "target" เป็น "each"</td></tr>
+            <tr><td><strong>Prowess</strong></td><td>ได้ +1/+1 จนจบเทิร์นเมื่อร่ายสเปลล์ที่ไม่ใช่ครีเจอร์</td></tr>
+            <tr><td><strong>Rally</strong></td><td>ทริกเกอร์เมื่อ Ally เข้าสนาม</td></tr>
+            <tr><td><strong>Rebound</strong></td><td>หลัง resolve แล้ว exile และร่ายฟรีอีกครั้งในอัพคีพถัดไป</td></tr>
+            <tr><td><strong>Scry N</strong></td><td>ดูการ์ด N ใบบนสุด; วางไว้ล่างสุดหรือบนสุดตามลำดับที่ต้องการ</td></tr>
+            <tr><td><strong>Storm</strong></td><td>สร้างสำเนาตามจำนวนสเปลล์ที่ร่ายมาก่อนใบนี้ในเทิร์นเดียวกัน</td></tr>
+            <tr><td><strong>Surveil N</strong></td><td>ดูการ์ด N ใบบนสุด; วางลง graveyard หรือคืนไว้บนสุด</td></tr>
+            <tr><td><strong>Threshold</strong></td><td>ได้เอฟเฟกต์เสริมถ้ามีการ์ดใน graveyard 7 ใบขึ้นไป</td></tr>
+            <tr><td><strong>Trample</strong></td><td>ดาเมจส่วนเกินจากการต่อสู้ทะลุไปถึงผู้เล่น/planeswalker</td></tr>
+            <tr><td><strong>Transform</strong></td><td>พลิกการ์ด; double-faced card</td></tr>
+            <tr><td><strong>Undying</strong></td><td>เมื่อตายโดยไม่มีเคาน์เตอร์ +1/+1 ให้กลับมาพร้อมเคาน์เตอร์ +1/+1</td></tr>
+            <tr><td><strong>Unearth</strong></td><td>นำกลับจาก graveyard; ได้ haste; exile ตอนจบเทิร์น</td></tr>
+            <tr><td><strong>Ward</strong></td><td>คู่ต่อสู้ต้องจ่ายต้นทุน ไม่งั้นสเปลล์/ความสามารถที่เล็งมันจะถูกเคาน์เตอร์</td></tr>
+          </tbody>
+        </table>
+      </section>
+      </article>
+
+      <p class="rules-source">เอกสารนี้เป็นการอ้างอิงอย่างย่อ แปลและเรียบเรียงเป็นภาษาไทยเพื่อการศึกษา สำหรับกฎ Comprehensive Rules ฉบับเต็มและกฎ Commander อย่างเป็นทางการ โปรดดูที่ <a href="https://magic.wizards.com/en/rules" target="_blank" rel="noopener">magic.wizards.com/en/rules</a> และ <a href="https://mtgcommander.net/index.php/rules/" target="_blank" rel="noopener">mtgcommander.net</a></p>
+
+      <nav class="rules-page-nav" aria-label="หน้ากฎถัดไป/ก่อนหน้า">
+        <a class="rp-prev" href="rules.html">พื้นฐานเกม</a>
+        <a class="rp-next" href="rules-commander.html">Commander & Orzhov</a>
+      </nav>
+
+      <p class="back-to-toc"><a href="index.html">← กลับสู่ห้องสมุดเรื่องราว</a></p>
+    </div>
+
+    <footer class="archive-footer">
+      <p>สรุปโดยอิงจากกฎทางการของ Wizards of the Coast · ไม่มีความเกี่ยวข้องกับ Wizards of the Coast</p>
+    </footer>
+  </main>
+</div>
+
+<script src="codex-nav.js"></script>
+</body>
+</html>

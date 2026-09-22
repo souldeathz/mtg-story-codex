@@ -9,39 +9,55 @@
     { href: "glossary.html", label: "อภิธานศัพท์", icon: "glossary" }
   ];
 
+  var RULES_PAGES = ["rules.html", "rules-mechanics.html", "rules-commander.html", "rules-aristocrats.html"];
+
   var RULES_TIERS = [
     {
-      label: "พื้นฐานต้องรู้ก่อนเล่น",
+      page: "rules.html",
+      label: "1. พื้นฐานเกมและโครงสร้าง",
       items: [
         { id: "basics", label: "พื้นฐานเกม" },
         { id: "turn", label: "โครงสร้างเทิร์น" },
-        { id: "stack", label: "Stack และ Priority" },
+        { id: "cardtypes", label: "ประเภทการ์ด" },
+        { id: "stack", label: "Stack" },
+        { id: "mana", label: "มานาและต้นทุน" },
+        { id: "casting-cost", label: "ร่ายสเปลล์ & Stack" },
         { id: "combat", label: "การต่อสู้ (Combat)" },
-        { id: "sba", label: "State-Based Actions" }
+        { id: "counters", label: "เคาน์เตอร์" }
       ]
     },
     {
-      label: "กลไกที่เจอบ่อย",
+      page: "rules-mechanics.html",
+      label: "2. กลไกและเอฟเฟกต์",
       items: [
-        { id: "cardtypes", label: "ประเภทการ์ด" },
-        { id: "mana", label: "มานาและต้นทุน" },
         { id: "triggered", label: "Triggered Abilities" },
-        { id: "replacement", label: "Replacement Effects" },
         { id: "tokens", label: "กฎ Token" },
+        { id: "sba", label: "State-Based Actions" },
+        { id: "death-timing", label: "ตายพร้อมกัน vs ทีละตัว" },
+        { id: "replacement", label: "Replacement Effects" },
+        { id: "copy", label: "Copy Effects" },
+        { id: "graveyard", label: "Graveyard และ Exile" },
+        { id: "edge-cases", label: "ปฏิสัมพันธ์ & กรณีพิเศษ" },
         { id: "keywords", label: "อภิธานศัพท์คีย์เวิร์ด" }
       ]
     },
     {
-      label: "กฎฟอร์แมต & ขั้นสูง",
+      page: "rules-commander.html",
+      label: "3. Commander (EDH) & Orzhov",
       items: [
         { id: "commander", label: "กฎเฉพาะ Commander (EDH)" },
-        { id: "graveyard", label: "Graveyard และ Exile" },
-        { id: "copy", label: "Copy Effects" },
-        { id: "edge-cases", label: "ปฏิสัมพันธ์ & กรณีพิเศษ" },
         { id: "orzhov", label: "กลไกสี Orzhov" },
-        { id: "casting-cost", label: "ต้นทุนร่ายสเปลล์ & Stack" },
+        { id: "edict-effects", label: "Edict Effects เจาะลึก" },
+        { id: "infinite-combo", label: "Infinite Combo / Loop" }
+      ]
+    },
+    {
+      page: "rules-aristocrats.html",
+      label: "4. กรณีศึกษา Aristocrats & FAQ",
+      items: [
         { id: "aristocrats-case-study", label: "กรณีศึกษา Aristocrats" },
         { id: "token-doubling-case-study", label: "ตัวคูณโทเค็น vs ตัวคูณทริกเกอร์" },
+        { id: "dies-wording", label: "ถ้อยคำ death-trigger" },
         { id: "faq", label: "คำถามที่พบบ่อย" }
       ]
     }
@@ -75,23 +91,23 @@
     return (window.location && window.location.hash) ? window.location.hash.replace("#", "") : "";
   }
 
-  function renderRulesGroup(isOnRulesPage, activeId) {
+  function renderRulesGroup(isOnRulesPage, currentFileName, activeId) {
     var open = isOnRulesPage;
     var html =
       '<div class="vol-group rules-group' + (open ? " is-open" : "") + (isOnRulesPage ? " is-active" : "") + '" data-group="rules">' +
       '<button class="vol-head" type="button" aria-expanded="' + (open ? "true" : "false") + '">' +
       '<span class="vol-head-left">' + chevronSvg() +
       '<span class="vol-head-label">' + shortcutIcon("rules") + '<span>กฎกติกา MTG</span></span></span>' +
-      '<span class="vol-head-count">20 ข้อ</span>' +
+      '<span class="vol-head-count">26 ข้อ · 4 หน้า</span>' +
       "</button>" +
       '<div class="vol-chapters rules-chapters"' + (open ? "" : " hidden") + ">";
 
     RULES_TIERS.forEach(function (tier) {
       html += '<p class="rules-tier-label">' + escapeHtml(tier.label) + "</p>";
       tier.items.forEach(function (it) {
-        var isActive = isOnRulesPage && it.id === activeId;
+        var isActive = isOnRulesPage && currentFileName === tier.page && it.id === activeId;
         html +=
-          '<a class="ch-row' + (isActive ? " is-active" : "") + '" href="' + base + "rules.html#" + it.id + '"' +
+          '<a class="ch-row' + (isActive ? " is-active" : "") + '" href="' + base + tier.page + "#" + it.id + '"' +
           (isActive ? ' aria-current="page"' : "") + ">" + escapeHtml(it.label) + "</a>";
       });
     });
@@ -122,7 +138,7 @@
     if (!nav) return;
     var q = (filterText || "").trim().toLowerCase();
     var file = currentFile();
-    var isOnRulesPage = file === "rules.html";
+    var isOnRulesPage = RULES_PAGES.indexOf(file) !== -1;
     var activeId = isOnRulesPage ? currentHash() : "";
     var html = "";
     var anyMatch = false;
@@ -161,7 +177,7 @@
     if (q && !anyMatch) {
       html = '<p class="sidebar-empty">ไม่พบบทที่ตรงกับ “' + escapeHtml(filterText) + '”</p>';
     }
-    html += renderRulesGroup(isOnRulesPage, activeId);
+    html += renderRulesGroup(isOnRulesPage, file, activeId);
     nav.innerHTML = html;
 
     nav.querySelectorAll(".vol-head").forEach(function (btn) {

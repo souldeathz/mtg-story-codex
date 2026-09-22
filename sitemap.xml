@@ -16,6 +16,26 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://souldeathz.github.io/mtg-story-codex/rules.html</loc>
+    <lastmod>2026-09-22</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://souldeathz.github.io/mtg-story-codex/rules-mechanics.html</loc>
+    <lastmod>2026-09-22</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://souldeathz.github.io/mtg-story-codex/rules-commander.html</loc>
+    <lastmod>2026-09-22</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://souldeathz.github.io/mtg-story-codex/rules-aristocrats.html</loc>
+    <lastmod>2026-09-22</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://souldeathz.github.io/mtg-story-codex/01-antiquities/index.html</loc>
     <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>

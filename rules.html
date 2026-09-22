@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>กฎกติกา Magic: The Gathering — MTG Story Codex</title>
-<meta name="description" content="สรุปกฎ Magic: The Gathering ฉบับภาษาไทย ครอบคลุมพื้นฐานเกม โครงสร้างเทิร์น การต่อสู้ คีย์เวิร์ด และกฎเฉพาะฟอร์แมต Commander (EDH) แบบละเอียด">
-<meta property="og:title" content="กฎกติกา Magic: The Gathering — MTG Story Codex">
-<meta property="og:description" content="สรุปกฎ Magic: The Gathering ฉบับภาษาไทย ครอบคลุมพื้นฐานเกม โครงสร้างเทิร์น การต่อสู้ คีย์เวิร์ด และกฎเฉพาะฟอร์แมต Commander (EDH)">
+<title>กฎกติกา Magic: The Gathering (1/4) — พื้นฐานเกม | MTG Story Codex</title>
+<meta name="description" content="สรุปกฎ Magic: The Gathering ฉบับภาษาไทย ส่วนที่ 1: พื้นฐานเกม โครงสร้างเทิร์น ประเภทการ์ด Stack มานา การร่ายสเปลล์ การต่อสู้ และเคาน์เตอร์">
+<meta property="og:title" content="กฎกติกา Magic: The Gathering (1/4) — พื้นฐานเกม | MTG Story Codex">
+<meta property="og:description" content="สรุปกฎ Magic: The Gathering ฉบับภาษาไทย ส่วนที่ 1: พื้นฐานเกม โครงสร้างเทิร์น ประเภทการ์ด Stack มานา การร่ายสเปลล์ การต่อสู้ และเคาน์เตอร์">
 <meta property="og:image" content="./og-image.png">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,9 +42,16 @@
 
   <main class="archive-main">
     <div class="library-col rules-col">
-      <p class="kicker">Magic: The Gathering · Story Codex</p>
+      <p class="kicker">Magic: The Gathering · Story Codex · ส่วนที่ 1/4 · พื้นฐานเกมและโครงสร้าง</p>
       <h1 class="library-title">กฎกติกา Magic: The Gathering</h1>
-      <p class="library-intro">สรุปกฎ Magic: The Gathering ฉบับภาษาไทย ตั้งแต่พื้นฐานเกมไปจนถึงกฎเฉพาะฟอร์แมต Commander (EDH) และกลไกสาย Orzhov — อ้างอิงจาก Comprehensive Rules ฉบับล่าสุดของ Wizards of the Coast เหมาะสำหรับผู้เล่นใหม่และผู้เล่นที่ต้องการทบทวนกรณีพิเศษ</p>
+      <p class="library-intro">พื้นฐานเกม โครงสร้างเทิร์น ประเภทการ์ด Stack มานาและต้นทุน ลำดับการร่ายสเปลล์ การต่อสู้ และเคาน์เตอร์ — จุดเริ่มต้นสำหรับผู้เล่นใหม่และจุดอ้างอิงเร็วสำหรับผู้เล่นเก่า</p>
+
+      <nav class="rules-page-tabs" aria-label="สลับหน้ากฎ">
+        <a href="rules.html" class="is-active"><span class="tab-num">1</span>พื้นฐานเกม</a>
+        <a href="rules-mechanics.html" class=""><span class="tab-num">2</span>กลไก & เอฟเฟกต์</a>
+        <a href="rules-commander.html" class=""><span class="tab-num">3</span>Commander & Orzhov</a>
+        <a href="rules-aristocrats.html" class=""><span class="tab-num">4</span>กรณีศึกษา</a>
+      </nav>
 
       <nav class="rules-quicknav" aria-label="ลัดไปยังหมวด">
         <a href="#basics">1. พื้นฐานเกม</a>
@@ -52,22 +59,14 @@
         <a href="#cardtypes">3. ประเภทการ์ด</a>
         <a href="#stack">4. Stack</a>
         <a href="#mana">5. มานา</a>
-        <a href="#combat">6. การต่อสู้</a>
-        <a href="#triggered">7. Triggered</a>
-        <a href="#tokens">8. Token</a>
-        <a href="#sba">9. SBA</a>
-        <a href="#replacement">10. Replacement</a>
-        <a href="#commander">11. Commander</a>
-        <a href="#graveyard">12. Graveyard/Exile</a>
-        <a href="#copy">13. Copy Effects</a>
-        <a href="#keywords">14. คีย์เวิร์ด</a>
-        <a href="#edge-cases">15. กรณีพิเศษ</a>
-        <a href="#orzhov">16. Orzhov</a>
+        <a href="#casting-cost">6. ร่ายสเปลล์/Stack</a>
+        <a href="#combat">7. การต่อสู้</a>
+        <a href="#counters">8. เคาน์เตอร์</a>
       </nav>
 
       <article class="rules-body">
 
-      <section class="rule-section" id="basics">
+<section class="rule-section" id="basics">
         <h2>1. พื้นฐานเกม</h2>
         <h3>1.1 เป้าหมาย</h3>
         <ul>
@@ -83,7 +82,7 @@
         </ol>
       </section>
 
-      <section class="rule-section" id="turn">
+<section class="rule-section" id="turn">
         <h2>2. โครงสร้างเทิร์น</h2>
         <h3>2.1 เฟสและสเต็ป (เรียงตามลำดับ)</h3>
         <pre>BEGINNING PHASE (เฟสเริ่มต้น)
@@ -115,7 +114,7 @@ ENDING PHASE (เฟสจบเทิร์น)
         </ul>
       </section>
 
-      <section class="rule-section" id="cardtypes">
+<section class="rule-section" id="cardtypes">
         <h2>3. ประเภทการ์ด</h2>
         <h3>3.1 ประเภทถาวร (Permanent — อยู่บนสนามต่อเนื่อง)</h3>
         <table>
@@ -145,7 +144,7 @@ ENDING PHASE (เฟสจบเทิร์น)
         </ul>
       </section>
 
-      <section class="rule-section" id="stack">
+<section class="rule-section" id="stack">
         <h2>4. Stack (กองซ้อน)</h2>
         <h3>4.1 Stack ทำงานอย่างไร</h3>
         <ul>
@@ -164,7 +163,7 @@ ENDING PHASE (เฟสจบเทิร์น)
         </ul>
       </section>
 
-      <section class="rule-section" id="mana">
+<section class="rule-section" id="mana">
         <h2>5. มานาและต้นทุน</h2>
         <h3>5.1 สีของมานา</h3>
         <table>
@@ -193,29 +192,55 @@ ENDING PHASE (เฟสจบเทิร์น)
         </ul>
       </section>
 
-      <section class="rule-section" id="combat">
-        <h2>6. กฎการต่อสู้ (Combat)</h2>
-        <h3>6.1 การโจมตี</h3>
+<section class="rule-section" id="casting-cost">
+        <h2>6. ต้นทุนตอนร่ายสเปลล์ กับการขึ้น Stack (CR 601)</h2>
+        <h3>6.1 ลำดับขั้นตอนการร่ายสเปลล์ (CR 601.2a–i)</h3>
+        <p class="rule-note">การร่ายสเปลล์ไม่ได้เกิดขึ้นทันที แต่เป็นกระบวนการหลายขั้นตอนที่เรียงลำดับตายตัว</p>
+        <ol class="rule-steps">
+          <li><strong>ย้ายไป Stack</strong> — การ์ดออกจากมือ (หรือโซนอื่น) ไปอยู่บน stack ก่อน ตอนนี้ถือว่า "กำลังถูกร่าย" แล้ว</li>
+          <li><strong>เลือกโหมด</strong> — ถ้าเป็นสเปลล์แบบ modal (เช่น "เลือก 1 อย่าง")</li>
+          <li><strong>เลือกเป้าหมาย (target)</strong></li>
+          <li><strong>แบ่งเอฟเฟกต์/ดาเมจ</strong> — ถ้ามีให้แบ่ง (เช่นสเปลล์ X ที่แบ่งดาเมจได้)</li>
+          <li><strong>กำหนดต้นทุนรวม</strong> — บวกต้นทุนพื้นฐาน + ต้นทุนเพิ่มเติม (additional cost) + ตัวเพิ่มต้นทุน (cost increase) แล้วหักตัวลดต้นทุน (cost reduction)</li>
+          <li><strong>ล็อกต้นทุน</strong> — ต้นทุนที่คำนวณได้ ณ จุดนี้ถูก "ล็อก" ไว้ — ต่อให้มีเอฟเฟกต์มาเปลี่ยนต้นทุนทีหลัง ก็ไม่กระทบสเปลล์ที่ร่ายไปแล้ว</li>
+          <li><strong>เปิดใช้ mana ability</strong> — ผู้เล่นแตะแลนด์/ใช้ mana rock เพื่อผลิตมานา (mana ability <strong>ไม่ขึ้น stack</strong> — resolve ทันที)</li>
+          <li><strong>จ่ายต้นทุน</strong> — จ่ายมานาและต้นทุนอื่น ๆ ทั้งหมด (รวมถึงการสังเวย/ทิ้งการ์ดถ้าเป็นต้นทุนของสเปลล์นั้น)</li>
+          <li><strong>ร่ายสำเร็จ</strong> — สเปลล์กลายเป็น "cast" อย่างสมบูรณ์ ความสามารถใด ๆ ที่ทริกเกอร์ "เมื่อคุณร่ายสเปลล์" (เช่น Storm, Magecraft) จะทริกเกอร์ ณ จุดนี้</li>
+        </ol>
+        <p class="rule-note"><strong>จุดสำคัญ:</strong> ขั้นตอน 1-6 เกิดขึ้นโดยยังไม่มีการจ่ายมานาเลย ต้นทุนถูกคำนวณและ "แช่แข็ง" ไว้ก่อนจ่ายจริงเสมอ</p>
+
+        <h3>6.2 Activated Ability ต่างจากการร่ายสเปลล์ (CR 602)</h3>
+        <ul>
+          <li>ความสามารถที่ต้องเปิดใช้ (เช่น สังเวยครีเจอร์เพื่อสแครย 1 ของ Viscera Seer) ใช้กระบวนการคล้ายกันแต่ไม่ใช่ CR 601 — คือ CR 602 แทน</li>
+          <li><strong>ต้นทุนของ activated ability (เช่นการสังเวย) ถูกจ่ายไปแล้ว ก่อนที่ตัวความสามารถจะขึ้น stack</strong></li>
+          <li>ดังนั้นครีเจอร์ที่ถูกสังเวยจะตาย "ทันที" ตั้งแต่ตอนจ่ายต้นทุน ไม่ต้องรอให้ความสามารถ resolve</li>
+          <li>นี่คือกลไกที่ทำให้ทริกเกอร์ "whenever a creature dies" ทำงานได้ทันทีที่กดสังเวย ก่อนที่ผลลัพธ์ (สแครย 1) จะ resolve ด้วยซ้ำ</li>
+        </ul>
+      </section>
+
+<section class="rule-section" id="combat">
+        <h2>7. กฎการต่อสู้ (Combat)</h2>
+        <h3>7.1 การโจมตี</h3>
         <ul>
           <li>แท็ปครีเจอร์เพื่อโจมตี (ยกเว้นมี Vigilance)</li>
           <li>ครีเจอร์ที่มี <strong>Summoning Sickness</strong> (เพิ่งเข้าสนามเทิร์นนี้) โจมตีหรือใช้ความสามารถ <img class="mana-sym" src="https://svgs.scryfall.io/card-symbols/T.svg" alt="{T}" loading="lazy" onerror="this.replaceWith(this.alt)"> ไม่ได้</li>
           <li>ครีเจอร์ต้องโจมตีถ้ามีเอฟเฟกต์ "must attack" บังคับ</li>
         </ul>
-        <h3>6.2 การป้องกัน</h3>
+        <h3>7.2 การป้องกัน</h3>
         <ul>
           <li>ผู้ป้องกันไม่ต้องแท็ป</li>
           <li>ครีเจอร์หนึ่งตัวป้องกันผู้โจมตีหลายตัวได้ไหม? <strong>ไม่ได้</strong> — ผู้ป้องกันแต่ละตัวป้องกันผู้โจมตีได้เพียง 1 ตัว</li>
           <li>ผู้โจมตี 1 ตัวถูกป้องกันโดยครีเจอร์หลายตัวได้</li>
           <li>ครีเจอร์ที่ไม่ถูกป้องกันจะสร้างดาเมจให้ผู้เล่นฝ่ายรับ/planeswalker</li>
         </ul>
-        <h3>6.3 ดาเมจการต่อสู้</h3>
+        <h3>7.3 ดาเมจการต่อสู้</h3>
         <ul>
           <li>กำหนดพร้อมกันทั้งหมด ยกเว้นครีเจอร์มี First Strike หรือ Double Strike</li>
           <li><strong>First Strike</strong>: สร้างดาเมจในสเต็ปดาเมจแรก</li>
           <li><strong>Double Strike</strong>: สร้างดาเมจใน<strong>ทั้งสอง</strong>สเต็ป</li>
           <li>Trample: ดาเมจส่วนเกินส่งถึงผู้เล่นได้ ถ้าผู้ป้องกันได้รับดาเมจถึงตายแล้ว</li>
         </ul>
-        <h3>6.4 คีย์เวิร์ดที่มีผลต่อการต่อสู้</h3>
+        <h3>7.4 คีย์เวิร์ดที่มีผลต่อการต่อสู้</h3>
         <table>
           <thead><tr><th>คีย์เวิร์ด</th><th>ผล</th></tr></thead>
           <tbody>
@@ -233,437 +258,33 @@ ENDING PHASE (เฟสจบเทิร์น)
         </table>
       </section>
 
-      <section class="rule-section" id="triggered">
-        <h2>7. ความสามารถแบบ Triggered</h2>
-        <h3>7.1 คำที่ใช้บอกทริกเกอร์</h3>
-        <ul>
-          <li><strong>"When"</strong> — ทริกเกอร์ครั้งเดียวเมื่อเงื่อนไขสำเร็จ</li>
-          <li><strong>"Whenever"</strong> — ทริกเกอร์ทุกครั้งที่เงื่อนไขสำเร็จ</li>
-          <li><strong>"At"</strong> — ทริกเกอร์ ณ เวลาที่กำหนดไว้ (เช่น "At the beginning of your upkeep")</li>
-        </ul>
-        <h3>7.2 จังหวะการทริกเกอร์</h3>
-        <ul>
-          <li>ทริกเกอร์ขึ้น stack ในครั้งถัดไปที่ผู้เล่นคนใดคนหนึ่งจะได้รับ priority</li>
-          <li>ผู้ควบคุมความสามารถที่ถูกทริกเกอร์เป็นผู้ควบคุมมันบน stack</li>
-          <li>ถ้ามีหลายทริกเกอร์จากเหตุการณ์เดียวกัน: active player จัดลำดับทริกเกอร์ของตนก่อน จากนั้นผู้เล่นที่ไม่ใช่ active player จึงจัดลำดับ</li>
-        </ul>
-        <h3>7.3 ทริกเกอร์ "Dies" (ตาย)</h3>
-        <ul>
-          <li>ครีเจอร์ "ตาย" เมื่อมันเคลื่อนจากสนามไปยัง graveyard</li>
-          <li>ทริกเกอร์ที่เช็ค "when X dies" จะดูการ์ดใบนั้นใน graveyard ณ ตอน resolve</li>
-        </ul>
-      </section>
-
-      <section class="rule-section" id="tokens">
-        <h2>8. กฎ Token</h2>
-        <h3>8.1 พื้นฐาน</h3>
-        <ul>
-          <li>Token ถูกสร้างขึ้นจากเอฟเฟกต์ของสเปลล์หรือความสามารถ</li>
-          <li>Token เป็นถาวร (permanent) ตราบใดที่อยู่บนสนาม</li>
-          <li>เมื่อ token ออกจากสนาม มันจะสลายหายไป (ไม่ไป graveyard, exile หรือที่อื่นใด)</li>
-          <li>Token ที่ควรกลับไปมือ จะสลายหายไปเฉยๆ</li>
-        </ul>
-        <h3>8.2 การก็อปปี้ Token</h3>
-        <ul>
-          <li>ถ้าก็อปปี้ token ตัวที่ก็อปมาก็เป็น token เช่นกัน</li>
-          <li>Token ไม่นับเป็นการ์ด แต่เป็นครีเจอร์, artifact ฯลฯ ได้</li>
-        </ul>
-      </section>
-
-      <section class="rule-section" id="sba">
-        <h2>9. State-Based Actions (SBA)</h2>
-        <p>State-based actions ถูกตรวจสอบตลอดเวลาโดยอัตโนมัติ โดยไม่ต้องมีผู้เล่นคนใดทำการกระทำใดๆ</p>
-        <h3>9.1 SBA ที่พบบ่อย</h3>
-        <ul>
-          <li>ครีเจอร์ที่มีความอึด (toughness) 0 หรือน้อยกว่า → ตาย</li>
-          <li>ครีเจอร์ที่มีดาเมจ ≥ ความอึด → ตาย (ยกเว้นมี Indestructible)</li>
-          <li>ผู้เล่นที่มีชีวิต 0 หรือน้อยกว่า → แพ้</li>
-          <li>ผู้เล่นที่ต้องจั่วแต่ไม่มีการ์ดเหลือ → แพ้</li>
-          <li>Planeswalker ที่มี loyalty 0 → ตาย</li>
-          <li><strong>กฎ Legend</strong> (Legend Rule): ถ้าถาวรระดับตำนาน (legendary) เหมือนกัน 2 ใบอยู่บนสนามภายใต้การควบคุมของผู้เล่นคนเดียวกัน → ผู้เล่นคนนั้นเลือกเก็บไว้ 1 ใบ ที่เหลือลง graveyard</li>
-          <li>ผู้เล่นที่มีเคาน์เตอร์พิษครบ 10 → แพ้</li>
-        </ul>
-      </section>
-
-      <section class="rule-section" id="replacement">
-        <h2>10. Replacement Effects (เอฟเฟกต์แทนที่)</h2>
-        <h3>10.1 หลักการทำงาน</h3>
-        <ul>
-          <li>Replacement effect เปลี่ยนวิธีที่เหตุการณ์หนึ่งเกิดขึ้น — มันไม่ได้ทริกเกอร์หลังเหตุการณ์ แต่ <strong>แทนที่</strong> เหตุการณ์นั้นไปเลย</li>
-          <li>ใช้คำว่า "instead" (แทน)</li>
-          <li>ตัวอย่าง: "If X would die, exile it instead" (ถ้า X จะตาย ให้ exile แทน) — การ์ดจะไม่มีวันไป graveyard</li>
-        </ul>
-        <h3>10.2 การใช้ Replacement หลายอย่างพร้อมกัน</h3>
-        <ul>
-          <li>ถ้ามี replacement หลายอย่างที่ใช้ได้พร้อมกัน ผู้เล่น/ผู้ควบคุมที่ได้รับผลกระทบเป็นผู้เลือกลำดับ</li>
-          <li>เมื่อเหตุการณ์ถูกแทนที่แล้ว เหตุการณ์ใหม่สามารถถูกแทนที่ได้อีก (แต่ต้องไม่ใช่เอฟเฟกต์เดียวกัน)</li>
-        </ul>
-      </section>
-
-      <section class="rule-section" id="commander">
-        <h2>11. กฎเฉพาะ Commander (EDH)</h2>
-
-        <h3>11.1 การสร้างเด็ค</h3>
-        <ul>
-          <li>ต้องมี <strong>100 ใบพอดี</strong> รวม Commander (99 การ์ดในเด็ค + 1 Commander)</li>
-          <li>กฎ <strong>Singleton</strong>: มีการ์ดซ้ำได้ใบเดียวต่อชื่อ (ยกเว้น basic land)</li>
-          <li>การ์ดทุกใบต้องตรงกับ <strong>color identity</strong> ของ Commander</li>
-          <li>Color identity นับรวม: สัญลักษณ์มานาในต้นทุน + สัญลักษณ์มานาสีใดๆ ในข้อความกฎ (rules text) รวมถึงด้านหลังของ double-faced card ด้วย</li>
-          <li>Commander ต้องเป็น legendary creature หรือการ์ดที่ระบุไว้ชัดเจนว่า "can be your commander" (เช่น planeswalker บางใบที่มีข้อความนี้)</li>
-        </ul>
-
-        <h3>11.2 Command Zone</h3>
-        <ul>
-          <li>Commander เริ่มต้นอยู่ใน <strong>Command Zone</strong> ซึ่งเป็นโซนสาธารณะแยกจากสนาม, มือ, ไลบรารี, graveyard และ exile</li>
-          <li>ร่ายจาก Command Zone ได้ทุกเมื่อที่ปกติร่ายได้ (ความเร็ว sorcery สำหรับครีเจอร์ทั่วไป)</li>
-          <li><strong>Commander Tax</strong>: ทุกครั้งที่ร่าย commander จาก Command Zone ต้นทุนเพิ่มขึ้น <img class="mana-sym" src="https://svgs.scryfall.io/card-symbols/2.svg" alt="{2}" loading="lazy" onerror="this.replaceWith(this.alt)"> (สะสมไปเรื่อยๆ ทุกครั้งที่ร่ายจากโซนนี้ ไม่ว่าจะร่ายสำเร็จหรือถูกเคาน์เตอร์)</li>
-          <li>ถ้า commander จะต้องไป graveyard, exile, หรือกลับมือ (จากที่ใดก็ตามบนสนามหรือ stack) เจ้าของสามารถเลือกนำกลับเข้า Command Zone แทนได้ (CR 903.9) — เป็น replacement effect ที่เจ้าของเลือกใช้เอง</li>
-        </ul>
-
-        <h3>11.3 Commander Damage (ดาเมจจาก Commander)</h3>
-        <ul>
-          <li>ผู้เล่นที่ได้รับดาเมจจากการต่อสู้ (combat damage) จาก commander ตัวเดียวรวม <strong>21 หน่วยขึ้นไป</strong> จะแพ้เกมทันที</li>
-          <li>ดาเมจถูกนับสะสมตลอดทั้งเกม แม้ commander จะออกจากสนามแล้วกลับมาใหม่ หรือเปลี่ยนเจ้าของ/ผู้ควบคุม</li>
-          <li>นับเฉพาะ<strong>ดาเมจจากการต่อสู้</strong>เท่านั้น (ไม่นับดาเมจจากความสามารถหรือสเปลล์)</li>
-          <li>ถ้ามี commander สองตัว (Partner) ดาเมจของแต่ละตัวนับแยกกัน ไม่รวมกัน</li>
-        </ul>
-
-        <h3>11.4 Partner Commander และตัวแปรอื่น</h3>
-        <ul>
-          <li><strong>Partner</strong> — สามารถมี commander 2 ใบที่มีคีย์เวิร์ดนี้พร้อมกันได้</li>
-          <li><strong>Partner with [ชื่อ]</strong> — จับคู่ได้เฉพาะกับการ์ดที่ระบุชื่อไว้เท่านั้น</li>
-          <li><strong>Choose a Background</strong> — commander ที่มีข้อความนี้จับคู่กับการ์ดประเภท Background ได้ 1 ใบ</li>
-          <li><strong>Friends Forever</strong> — ทำงานเหมือน Partner แต่ปรากฏบนการ์ดจากชุด Commander Legends: Battle for Baldur's Gate</li>
-          <li>Commander ทั้งสองเริ่มต้นใน Command Zone แยกกัน; นับ commander tax แยกกันตามใบ</li>
-        </ul>
-
-        <h3>11.5 กฎการเริ่มเกมและ Multiplayer</h3>
-        <ul>
-          <li>ผู้เล่นเริ่มต้นด้วยชีวิต <strong>40 หน่วย</strong> (ไม่ใช่ 20 เหมือนฟอร์แมตอื่น)</li>
-          <li>กำหนดผู้เล่นเริ่มต้น (active player คนแรก) แบบสุ่ม เช่น ทอยลูกเต๋าหรือจับไพ่</li>
-          <li>ในเกมหลายผู้เล่น priority จะส่งต่อตามเข็มนาฬิกาเริ่มจาก active player</li>
-          <li>ในเกม free-for-all คู่ต่อสู้แต่ละคนนับเป็นทั้ง "opponent" และ "another player" สำหรับเอฟเฟกต์ที่ระบุคำเหล่านี้</li>
-          <li><strong>การกำจัดผู้เล่น (Player Elimination)</strong>: เมื่อผู้เล่นแพ้ ถาวร, สเปลล์ และความสามารถบน stack ที่พวกเขาเป็นเจ้าของจะถูกนำออกจากเกมทั้งหมด (รวมถึง commander ของพวกเขาที่อยู่ใน Command Zone) เกมดำเนินต่อกับผู้เล่นที่เหลือ</li>
-        </ul>
-
-        <h3>11.6 กฎบังคับ / การ์ดต้องห้าม</h3>
-        <ul>
-          <li>Commander ฟอร์แมตมีรายการการ์ดต้องห้าม (Banned List) ของตัวเอง ดูแลโดยคณะกรรมการ Commander Format Panel ซึ่งแยกจากรายการแบนของฟอร์แมตอื่น</li>
-          <li>ทุกโต๊ะควรตกลงกันล่วงหน้าเรื่อง house rules เพิ่มเติม เช่น การใช้ proxy หรือกฎเกี่ยวกับ salt/power creep เพราะ Commander เป็นฟอร์แมตที่เน้นเล่นแบบสังคม (social contract) เป็นหลัก</li>
-        </ul>
-
-        <h3>11.7 ระบบ Commander Brackets (ตัวช่วยจับคู่ระดับพลัง)</h3>
-        <p>Wizards of the Coast เปิดตัวระบบ "Commander Brackets" เพื่อช่วยผู้เล่นสื่อสารระดับความแรงของเด็คก่อนเริ่มเกม แบ่งเป็น 5 ระดับ:</p>
-        <table>
-          <thead><tr><th>Bracket</th><th>ชื่อ</th><th>ลักษณะ</th></tr></thead>
-          <tbody>
-            <tr><td>1</td><td>Exhibition</td><td>เด็คเพื่อความสนุกหรือธีมล้วนๆ เน้นคอนเซปต์มากกว่าความแรง</td></tr>
-            <tr><td>2</td><td>Core</td><td>เด็คธีมที่จัดตั้งแล้ว ความแรงใกล้เคียงเด็ค precon มาตรฐาน</td></tr>
-            <tr><td>3</td><td>Upgraded</td><td>อัปเกรดเหนือ precon ด้วยการ์ดที่ทำงานร่วมกัน (synergy) อนุญาตการ์ดแรงบางใบ (Game Changers ได้สูงสุด 3 ใบ)</td></tr>
-            <tr><td>4</td><td>Optimized</td><td>เด็คพลังสูง ใช้การ์ดที่ถูกกฎหมายได้ทุกใบโดยไม่มีข้อจำกัดเพิ่มเติมนอกจาก banned list มาตรฐาน</td></tr>
-            <tr><td>5</td><td>cEDH</td><td>เด็คระดับแข่งขัน ออกแบบมาเพื่อชนะทัวร์นาเมนต์และปรับตามเมต้า</td></tr>
-          </tbody>
-        </table>
-        <p class="rule-note">ระบบ Bracket เป็น "เครื่องมือสื่อสาร" ไม่ใช่กฎบังคับอย่างเป็นทางการในเกม — ใช้เพื่อให้ผู้เล่นที่โต๊ะเดียวกันคาดหวังระดับความแรงตรงกันก่อนเริ่มเกม โดยพิจารณาจากปัจจัยอย่าง จำนวน tutor, การก็อมโบ 2 ใบจบเกมเร็ว, การทำลายแลนด์จำนวนมาก (mass land denial), และการใช้เทิร์นเสริม (extra turns)</p>
-      </section>
-
-      <section class="rule-section" id="graveyard">
-        <h2>12. Graveyard และ Exile</h2>
-        <h3>12.1 Graveyard</h3>
-        <ul>
-          <li>การ์ดจะไปที่ graveyard ของเจ้าของแบบหงายหน้า</li>
-          <li>ลำดับไม่สำคัญในเกมแบบสบายๆ (casual) แต่อาจมีผลกับบางเอฟเฟกต์</li>
-          <li>ผู้เล่นสามารถดู graveyard ของใครก็ได้ทุกเมื่อ</li>
-        </ul>
-        <h3>12.2 Exile</h3>
-        <ul>
-          <li>การ์ดที่ถูก exile ถือเป็น "ถูกนำออกจากเกม" ในบริบทส่วนใหญ่</li>
-          <li>บางการ์ดมีปฏิสัมพันธ์กับโซน exile (เช่น "cast spells exiled with...")</li>
-          <li>การ์ดใน exile จะหงายหน้าไว้ เว้นแต่การ์ดจะระบุให้คว่ำหน้าโดยเฉพาะ</li>
-        </ul>
-      </section>
-
-      <section class="rule-section" id="copy">
-        <h2>13. Copy Effects (เอฟเฟกต์การก็อปปี้)</h2>
-        <h3>13.1 การก็อปปี้สเปลล์</h3>
-        <ul>
-          <li>ตัวก็อปมีคุณสมบัติเดียวกัน (ชื่อ, ต้นทุนมานา, ประเภท, ข้อความ, เป้าหมาย)</li>
-          <li>ตัวก็อปไม่ถูกนับว่า "ถูกร่าย" (cast) — เพียงแค่ถูกวางบน stack</li>
-          <li>สามารถเลือกเป้าหมายใหม่ให้ตัวก็อปได้</li>
-        </ul>
-        <h3>13.2 การก็อปปี้ถาวร (Permanent)</h3>
-        <ul>
-          <li>ตัวก็อปมีคุณสมบัติตามที่พิมพ์บนการ์ดต้นฉบับ</li>
-          <li>จะ<strong>ไม่</strong>ก็อปเคาน์เตอร์, Aura/Equipment ที่แนบอยู่ หรือประวัติ "เข้าสนามเมื่อไร"</li>
-        </ul>
-      </section>
-
-      <section class="rule-section" id="keywords">
-        <h2>14. อภิธานศัพท์คำสำคัญ (Keyword Glossary)</h2>
-        <table>
-          <thead><tr><th>คีย์เวิร์ด</th><th>คำอธิบายย่อ</th></tr></thead>
-          <tbody>
-            <tr><td><strong>Affinity</strong></td><td>ต้นทุนลดลงตามจำนวน artifact ที่ควบคุมอยู่</td></tr>
-            <tr><td><strong>Annihilator</strong></td><td>เมื่อโจมตี บังคับให้คู่ต่อสู้ทิ้งถาวร</td></tr>
-            <tr><td><strong>Bestow</strong></td><td>ร่ายเป็น Aura หรือเป็นครีเจอร์ก็ได้</td></tr>
-            <tr><td><strong>Cascade</strong></td><td>Exile การ์ดไปเรื่อยๆ จนเจอใบที่ถูกกว่า; ร่ายฟรี</td></tr>
-            <tr><td><strong>Convoke</strong></td><td>แท็ปครีเจอร์เพื่อช่วยจ่ายต้นทุนมานา</td></tr>
-            <tr><td><strong>Delve</strong></td><td>Exile การ์ดใน graveyard เพื่อจ่าย generic mana</td></tr>
-            <tr><td><strong>Embalm</strong></td><td>Exile จาก graveyard เพื่อสร้าง token สำเนา</td></tr>
-            <tr><td><strong>Enlist</strong></td><td>แท็ปครีเจอร์ตัวอื่นเพื่อเพิ่มพลังให้ผู้โจมตี</td></tr>
-            <tr><td><strong>Equip</strong></td><td>ความสามารถความเร็ว sorcery ใช้แนบ Equipment กับครีเจอร์</td></tr>
-            <tr><td><strong>Escape</strong></td><td>ร่ายจาก graveyard; ต้อง exile การ์ดอื่นเป็นต้นทุนเพิ่ม</td></tr>
-            <tr><td><strong>Eternalize</strong></td><td>คล้าย Embalm แต่สร้างสำเนา Zombie ดำ 4/4</td></tr>
-            <tr><td><strong>Explore</strong></td><td>เปิดการ์ดใบบนสุด; ถ้าเป็นแลนด์ใส่มือ, ถ้าไม่ใช่ใส่เคาน์เตอร์</td></tr>
-            <tr><td><strong>Exploit</strong></td><td>เมื่อเข้าสนาม อาจสังเวยครีเจอร์เพื่อรับเอฟเฟกต์</td></tr>
-            <tr><td><strong>Exert</strong></td><td>แท็ปและไม่คลายแท็ปเทิร์นถัดไปเพื่อรับเอฟเฟกต์พิเศษ</td></tr>
-            <tr><td><strong>Fabricate</strong></td><td>ใส่เคาน์เตอร์ +1/+1 หรือสร้าง token Servo</td></tr>
-            <tr><td><strong>Flash</strong></td><td>ร่ายได้ด้วยความเร็ว instant</td></tr>
-            <tr><td><strong>Flashback</strong></td><td>ร่ายจาก graveyard; exile หลังใช้</td></tr>
-            <tr><td><strong>Foretell</strong></td><td>จ่าย <img class="mana-sym" src="https://svgs.scryfall.io/card-symbols/2.svg" alt="{2}" loading="lazy" onerror="this.replaceWith(this.alt)"> เพื่อ exile คว่ำหน้า; ร่ายทีหลังด้วยต้นทุนลด</td></tr>
-            <tr><td><strong>Hexproof</strong></td><td>ไม่สามารถถูกเล็งโดยสเปลล์/ความสามารถของคู่ต่อสู้</td></tr>
-            <tr><td><strong>Improvise</strong></td><td>แท็ป artifact เพื่อช่วยจ่ายต้นทุนมานา</td></tr>
-            <tr><td><strong>Infect</strong></td><td>สร้างดาเมจเป็นเคาน์เตอร์ -1/-1 กับครีเจอร์, เคาน์เตอร์พิษกับผู้เล่น</td></tr>
-            <tr><td><strong>Landfall</strong></td><td>ทริกเกอร์ทุกครั้งที่แลนด์เข้าสนามภายใต้การควบคุมของตน</td></tr>
-            <tr><td><strong>Madness</strong></td><td>ถ้าถูกทิ้ง อาจร่ายด้วยต้นทุน Madness</td></tr>
-            <tr><td><strong>Morbid</strong></td><td>ได้เอฟเฟกต์เสริมถ้ามีครีเจอร์ตายในเทิร์นนี้</td></tr>
-            <tr><td><strong>Mutate</strong></td><td>รวมร่างกับครีเจอร์ที่ไม่ใช่ human; เหลือครีเจอร์เดียว รวมความสามารถ</td></tr>
-            <tr><td><strong>Ninjutsu</strong></td><td>สลับตัวกับผู้โจมตีที่ไม่ถูกป้องกัน; จ่ายต้นทุน</td></tr>
-            <tr><td><strong>Overload</strong></td><td>จ่ายเพิ่มเพื่อเปลี่ยนเป้าหมายจาก "target" เป็น "each"</td></tr>
-            <tr><td><strong>Prowess</strong></td><td>ได้ +1/+1 จนจบเทิร์นเมื่อร่ายสเปลล์ที่ไม่ใช่ครีเจอร์</td></tr>
-            <tr><td><strong>Rally</strong></td><td>ทริกเกอร์เมื่อ Ally เข้าสนาม</td></tr>
-            <tr><td><strong>Rebound</strong></td><td>หลัง resolve แล้ว exile และร่ายฟรีอีกครั้งในอัพคีพถัดไป</td></tr>
-            <tr><td><strong>Scry N</strong></td><td>ดูการ์ด N ใบบนสุด; วางไว้ล่างสุดหรือบนสุดตามลำดับที่ต้องการ</td></tr>
-            <tr><td><strong>Storm</strong></td><td>สร้างสำเนาตามจำนวนสเปลล์ที่ร่ายมาก่อนใบนี้ในเทิร์นเดียวกัน</td></tr>
-            <tr><td><strong>Surveil N</strong></td><td>ดูการ์ด N ใบบนสุด; วางลง graveyard หรือคืนไว้บนสุด</td></tr>
-            <tr><td><strong>Threshold</strong></td><td>ได้เอฟเฟกต์เสริมถ้ามีการ์ดใน graveyard 7 ใบขึ้นไป</td></tr>
-            <tr><td><strong>Trample</strong></td><td>ดาเมจส่วนเกินจากการต่อสู้ทะลุไปถึงผู้เล่น/planeswalker</td></tr>
-            <tr><td><strong>Transform</strong></td><td>พลิกการ์ด; double-faced card</td></tr>
-            <tr><td><strong>Undying</strong></td><td>เมื่อตายโดยไม่มีเคาน์เตอร์ +1/+1 ให้กลับมาพร้อมเคาน์เตอร์ +1/+1</td></tr>
-            <tr><td><strong>Unearth</strong></td><td>นำกลับจาก graveyard; ได้ haste; exile ตอนจบเทิร์น</td></tr>
-            <tr><td><strong>Ward</strong></td><td>คู่ต่อสู้ต้องจ่ายต้นทุน ไม่งั้นสเปลล์/ความสามารถที่เล็งมันจะถูกเคาน์เตอร์</td></tr>
-          </tbody>
-        </table>
-      </section>
-
-      <section class="rule-section" id="edge-cases">
-        <h2>15. ปฏิสัมพันธ์และกรณีพิเศษที่ควรรู้</h2>
-        <h3>15.1 "Dies" กับ การออกจากสนาม</h3>
-        <ul>
-          <li>"When X dies" ทริกเกอร์เมื่อครีเจอร์เคลื่อนจากสนามไปยัง <strong>graveyard</strong> โดยเฉพาะเท่านั้น</li>
-          <li>ถ้าครีเจอร์ถูก exile แทนที่จะตาย ทริกเกอร์ "dies" จะ<strong>ไม่</strong>ทำงาน</li>
-          <li>ครีเจอร์ Indestructible ยังตายได้จากเอฟเฟกต์ที่บอกให้ "sacrifice" หรือลด -X/-X</li>
-        </ul>
-        <h3>15.2 Sacrifice กับ Destroy</h3>
-        <ul>
-          <li><strong>Destroy</strong>: ป้องกันได้ด้วย Regeneration หรือ Indestructible</li>
-          <li><strong>Sacrifice</strong>: ป้องกันไม่ได้ — แม้ครีเจอร์ Indestructible ก็ถูกสังเวยได้</li>
-        </ul>
-        <h3>15.3 "Leaves the Battlefield" (LTB — ออกจากสนาม)</h3>
-        <ul>
-          <li>ทริกเกอร์ที่เช็คคุณสมบัติของการ์ดตอนออกจากสนาม จะดูสถานะล่าสุดที่ทราบ (last known state) บนสนาม</li>
-          <li>ตัวอย่าง: "When equipped creature dies" — Equipment จะเช็คว่ามันแนบกับอะไรอยู่ก่อนที่ครีเจอร์นั้นจะออกจากสนาม</li>
-        </ul>
-        <h3>15.4 จังหวะของ Activated Ability</h3>
-        <ul>
-          <li>ถ้าไม่ได้ระบุว่า "activate only as a sorcery" ความสามารถแบบ activated สามารถใช้ได้ด้วยความเร็ว instant</li>
-          <li>Mana ability (ผลิตมานา) ไม่ใช้ stack — resolve ทันที</li>
-        </ul>
-        <h3>15.5 ระบบ Layer (สำหรับเอฟเฟกต์ต่อเนื่อง)</h3>
-        <p>เมื่อถาวรหนึ่งใบถูกแก้ไขคุณสมบัติโดยเอฟเฟกต์ต่อเนื่อง (continuous effect) หลายอย่างพร้อมกัน เกมจะไม่ใช้ "ลำดับเวลา" ในการคำนวณอย่างเดียว แต่จะไล่คำนวณตาม <strong>7 Layer</strong> ตามลำดับตายตัวนี้ก่อนเสมอ — ภายใน Layer เดียวกันจึงค่อยเรียงตาม timestamp (การ์ดที่มีผลก่อนคำนวณก่อน) หรือตาม dependency:</p>
-        <table>
-          <thead><tr><th>Layer</th><th>ผลที่เปลี่ยน</th><th>ตัวอย่างการ์ด/เอฟเฟกต์</th></tr></thead>
-          <tbody>
-            <tr><td><strong>1</strong></td><td>เอฟเฟกต์การก็อปปี้ (Copy)</td><td>Clone เข้าสนามเป็นสำเนาของครีเจอร์อื่น — ก็อปชื่อ, ต้นทุน, ประเภท, P/T, ข้อความทั้งหมด</td></tr>
-            <tr><td><strong>2</strong></td><td>เอฟเฟกต์เปลี่ยนผู้ควบคุม (Control)</td><td>Mind Control — เปลี่ยนผู้ควบคุมถาวรเป้าหมายมาเป็นของตน</td></tr>
-            <tr><td><strong>3</strong></td><td>เอฟเฟกต์เปลี่ยนข้อความ (Text)</td><td>Mind Bend — เปลี่ยนคำในข้อความกฎ เช่นเปลี่ยนชื่อสีที่การ์ดอ้างถึง</td></tr>
-            <tr><td><strong>4</strong></td><td>เอฟเฟกต์เปลี่ยนประเภท (Type)</td><td>Song of the Dryads (ถาวรที่ถูกผูกกลายเป็น Forest เพิ่ม) · Blood Moon (nonbasic land ทุกใบกลายเป็น Mountain)</td></tr>
-            <tr><td><strong>5</strong></td><td>เอฟเฟกต์เปลี่ยนสี (Color)</td><td>Painter's Servant — ถาวรและสเปลล์ทุกใบเป็นสีที่เลือกเพิ่มเข้าไป</td></tr>
-            <tr><td><strong>6</strong></td><td>เอฟเฟกต์เพิ่ม/ลบความสามารถ (Ability)</td><td>Rancor (มอบ Trample) · Humility / Silence (ลบความสามารถทั้งหมด)</td></tr>
-            <tr><td><strong>7</strong></td><td>เอฟเฟกต์เปลี่ยนพลัง/ความอึด (P/T) — แบ่งเป็น 4 sub-layer</td><td>ดูตารางย่อย 7a–7d ด้านล่าง</td></tr>
-          </tbody>
-        </table>
-        <table>
-          <thead><tr><th>Sub-layer 7</th><th>ผลที่เปลี่ยน</th><th>ตัวอย่าง</th></tr></thead>
-          <tbody>
-            <tr><td><strong>7a</strong></td><td>Characteristic-Defining Ability (CDA) — P/T ที่นิยามจากคุณสมบัติการ์ดเอง</td><td>Tarmogoyf ("*/1+*" อิงจากประเภทการ์ดใน graveyard ทุกใบ)</td></tr>
-            <tr><td><strong>7b</strong></td><td>เอฟเฟกต์ที่ "กำหนดค่า" P/T ตรงๆ (set to)</td><td>Ovinize ("target creature becomes a 0/1")</td></tr>
-            <tr><td><strong>7c</strong></td><td>เอฟเฟกต์ที่ "บวก/ลบ" P/T (รวมเคาน์เตอร์ +1/+1)</td><td>Giant Growth (+3/+3) · Glorious Anthem (+1/+1 ให้ครีเจอร์ของตน) · เคาน์เตอร์ +1/+1</td></tr>
-            <tr><td><strong>7d</strong></td><td>เอฟเฟกต์ "สลับ" พลัง/ความอึด</td><td>เอฟเฟกต์ประเภท "switch power and toughness until end of turn"</td></tr>
-          </tbody>
-        </table>
-
-        <div class="rule-note">
-          <strong>ตัวอย่างการคำนวณจริง:</strong> Grizzly Bears (2/2) ตัวหนึ่งถูกเอฟเฟกต์ 3 อย่างนี้ส่งผลพร้อมกัน — (ก) โดน <em>Ovinize</em> เล็ง กลายเป็น "0/1" (Layer 7b) (ข) ควบคุมโดยผู้เล่นที่มี <em>Glorious Anthem</em> ในสนาม ให้ +1/+1 กับครีเจอร์ของตน (Layer 7c) (ค) ควบคุมโดยผู้เล่นที่มี <em>Adaptive Automaton</em> ประกาศ type เป็น Bear ให้ +1/+1 กับ Bear (Layer 7c เช่นกัน)
-          <br><br>
-          วิธีคิด: เกมไล่คำนวณ Layer 7b ก่อน (Ovinize กำหนดค่าฐานเป็น 0/1) แล้วจึงไป Layer 7c ซึ่งมี 2 เอฟเฟกต์เรียงตาม timestamp บวกสะสมกัน (+1/+1 และ +1/+1) → ผลลัพธ์สุดท้ายคือ <strong>0/1 + 1/1 + 1/1 = 2/3</strong> — ไม่ใช่ "2/2 ปกติ" และไม่ใช่ "0/1 เฉยๆ" เพราะ Layer 7b ทำงานก่อน Layer 7c เสมอ ไม่ว่า Ovinize จะถูกร่ายก่อนหรือหลังการ์ดอีกสองใบ
-        </div>
-
-        <div class="rule-note">
-          <strong>ตัวอย่างข้าม Layer:</strong> ถ้าครีเจอร์ตัวเดียวกันโดน <em>Turn to Frog</em> ("target creature loses all abilities and becomes a Blue Frog with base power and toughness 1/1") ด้วย — Turn to Frog เปลี่ยนประเภทย่อยเป็น Frog (Layer 4), เปลี่ยนสีเป็นน้ำเงิน (Layer 5), ลบความสามารถทั้งหมด (Layer 6) และกำหนดฐาน P/T เป็น 1/1 (Layer 7b) ทั้งหมดนี้มาจากการ์ดใบเดียวแต่ถูก "แยก" ไปคำนวณคนละ Layer ตามชนิดของผล ไม่ใช่คำนวณรวดเดียวตามข้อความบนการ์ด — ถ้ามี Glorious Anthem อยู่ด้วย ผลลัพธ์จะยังเป็น 1/1 + 1/1 = 2/2 เพราะ +1/+1 อยู่ Layer 7c ซึ่งมาทีหลัง Layer 7b เสมอ
-        </div>
-
-        <h3>15.6 Double-Faced Card (DFC)</h3>
-        <ul>
-          <li>Transforming DFC: มีด้านกลางวัน/กลางคืน; การพลิกด้านเกิดจากทริกเกอร์หรือแอคทิเวต</li>
-          <li>Modal DFC (MDFC): เลือกด้านที่จะเล่น; ด้านหลังมักเป็นแลนด์</li>
-        </ul>
-      </section>
-
-      <section class="rule-section" id="orzhov">
-        <h2>16. กลไกเฉพาะสี Orzhov (ขาว/ดำ)</h2>
-        <p class="rule-note">เกี่ยวข้องกับเด็ค Commander สาย Teysa Karlov และเด็ค Aristocrats</p>
-        <h3>16.1 Afterlife</h3>
-        <ul>
-          <li>"Afterlife N" — เมื่อครีเจอร์นี้ตาย ให้สร้าง token ครีเจอร์ Spirit สีขาว/ดำ 1/1 มี Flying จำนวน N ตัว</li>
-          <li><strong>ปฏิสัมพันธ์กับ Teysa Karlov</strong>: Teysa Karlov ทำให้ triggered ability จากการตายของครีเจอร์ทำงาน<strong>สองครั้ง</strong></li>
-          <li>หมายความว่า Afterlife 1 บนครีเจอร์จะสร้าง <strong>2 Spirit token</strong> แทนที่จะเป็น 1 ตัวเมื่อมี Teysa อยู่</li>
-        </ul>
-        <h3>16.2 Extort</h3>
-        <ul>
-          <li>ทุกครั้งที่ร่ายสเปลล์ อาจจ่าย <img class="mana-sym" src="https://svgs.scryfall.io/card-symbols/WB.svg" alt="{W/B}" loading="lazy" onerror="this.replaceWith(this.alt)"></li>
-          <li>คู่ต่อสู้แต่ละคนเสียชีวิต 1 หน่วย และตัวเองได้ชีวิตเท่านั้นคืน</li>
-          <li>Extort หลายตัวทริกเกอร์แยกกัน</li>
-        </ul>
-        <h3>16.3 Haunt</h3>
-        <ul>
-          <li>เมื่อครีเจอร์ที่มี Haunt ตาย ให้ exile มัน แล้วไป "หลอกหลอน" (haunt) ครีเจอร์อีกตัว</li>
-          <li>เมื่อครีเจอร์ที่ถูกหลอกหลอนตาย ให้ทริกเกอร์ความสามารถ Haunt อีกครั้ง</li>
-        </ul>
-        <h3>16.4 การผสานพลังแบบสังเวย (Orzhov Aristocrats Style)</h3>
-        <ul>
-          <li><strong>Aristocrats</strong>: ครีเจอร์/เวทมนตร์ที่ให้รางวัลเมื่อครีเจอร์อื่นตาย (เช่น Blood Artist, Zulaport Cutthroat)</li>
-          <li><strong>Sac Outlets (ช่องทางสังเวย)</strong>: ครีเจอร์หรือ artifact ที่ให้สังเวยครีเจอร์ได้อย่างอิสระ (เช่น Viscera Seer, Ashnod's Altar)</li>
-          <li><strong>Recursive Creatures (ครีเจอร์ที่ฟื้นคืนได้)</strong>: ครีเจอร์ที่กลับมาจาก graveyard ได้ (เช่น Reassembling Skeleton)</li>
-        </ul>
-      </section>
-
-      <section class="rule-section" id="casting-cost">
-        <h2>17. ต้นทุนตอนร่ายสเปลล์ กับการขึ้น Stack (CR 601)</h2>
-        <h3>17.1 ลำดับขั้นตอนการร่ายสเปลล์ (CR 601.2a–i)</h3>
-        <p class="rule-note">การร่ายสเปลล์ไม่ได้เกิดขึ้นทันที แต่เป็นกระบวนการหลายขั้นตอนที่เรียงลำดับตายตัว</p>
-        <ol class="rule-steps">
-          <li><strong>ย้ายไป Stack</strong> — การ์ดออกจากมือ (หรือโซนอื่น) ไปอยู่บน stack ก่อน ตอนนี้ถือว่า "กำลังถูกร่าย" แล้ว</li>
-          <li><strong>เลือกโหมด</strong> — ถ้าเป็นสเปลล์แบบ modal (เช่น "เลือก 1 อย่าง")</li>
-          <li><strong>เลือกเป้าหมาย (target)</strong></li>
-          <li><strong>แบ่งเอฟเฟกต์/ดาเมจ</strong> — ถ้ามีให้แบ่ง (เช่นสเปลล์ X ที่แบ่งดาเมจได้)</li>
-          <li><strong>กำหนดต้นทุนรวม</strong> — บวกต้นทุนพื้นฐาน + ต้นทุนเพิ่มเติม (additional cost) + ตัวเพิ่มต้นทุน (cost increase) แล้วหักตัวลดต้นทุน (cost reduction)</li>
-          <li><strong>ล็อกต้นทุน</strong> — ต้นทุนที่คำนวณได้ ณ จุดนี้ถูก "ล็อก" ไว้ — ต่อให้มีเอฟเฟกต์มาเปลี่ยนต้นทุนทีหลัง ก็ไม่กระทบสเปลล์ที่ร่ายไปแล้ว</li>
-          <li><strong>เปิดใช้ mana ability</strong> — ผู้เล่นแตะแลนด์/ใช้ mana rock เพื่อผลิตมานา (mana ability <strong>ไม่ขึ้น stack</strong> — resolve ทันที)</li>
-          <li><strong>จ่ายต้นทุน</strong> — จ่ายมานาและต้นทุนอื่น ๆ ทั้งหมด (รวมถึงการสังเวย/ทิ้งการ์ดถ้าเป็นต้นทุนของสเปลล์นั้น)</li>
-          <li><strong>ร่ายสำเร็จ</strong> — สเปลล์กลายเป็น "cast" อย่างสมบูรณ์ ความสามารถใด ๆ ที่ทริกเกอร์ "เมื่อคุณร่ายสเปลล์" (เช่น Storm, Magecraft) จะทริกเกอร์ ณ จุดนี้</li>
-        </ol>
-        <p class="rule-note"><strong>จุดสำคัญ:</strong> ขั้นตอน 1-6 เกิดขึ้นโดยยังไม่มีการจ่ายมานาเลย ต้นทุนถูกคำนวณและ "แช่แข็ง" ไว้ก่อนจ่ายจริงเสมอ</p>
-
-        <h3>17.2 Activated Ability ต่างจากการร่ายสเปลล์ (CR 602)</h3>
-        <ul>
-          <li>ความสามารถที่ต้องเปิดใช้ (เช่น สังเวยครีเจอร์เพื่อสแครย 1 ของ Viscera Seer) ใช้กระบวนการคล้ายกันแต่ไม่ใช่ CR 601 — คือ CR 602 แทน</li>
-          <li><strong>ต้นทุนของ activated ability (เช่นการสังเวย) ถูกจ่ายไปแล้ว ก่อนที่ตัวความสามารถจะขึ้น stack</strong></li>
-          <li>ดังนั้นครีเจอร์ที่ถูกสังเวยจะตาย "ทันที" ตั้งแต่ตอนจ่ายต้นทุน ไม่ต้องรอให้ความสามารถ resolve</li>
-          <li>นี่คือกลไกที่ทำให้ทริกเกอร์ "whenever a creature dies" ทำงานได้ทันทีที่กดสังเวย ก่อนที่ผลลัพธ์ (สแครย 1) จะ resolve ด้วยซ้ำ</li>
-        </ul>
-      </section>
-
-      <section class="rule-section" id="aristocrats-case-study">
-        <h2>18. กรณีศึกษา Aristocrats: Teysa Karlov + Delney + Bastion of Remembrance</h2>
-        <p class="rule-note">Oracle text จริงของการ์ดที่ใช้ในกรณีศึกษานี้</p>
-        <table>
-          <thead><tr><th>การ์ด</th><th>ต้นทุน</th><th>ข้อความ</th></tr></thead>
-          <tbody>
-            <tr><td><img class="rule-card-img" src="https://api.scryfall.com/cards/named?fuzzy=Teysa%20Karlov&format=image&version=normal" alt="Teysa Karlov" loading="lazy" onerror="this.remove()"><strong>Teysa Karlov</strong><br>2/4</td><td><img class="mana-sym" src="https://svgs.scryfall.io/card-symbols/1.svg" alt="{1}" loading="lazy" onerror="this.replaceWith(this.alt)"><img class="mana-sym" src="https://svgs.scryfall.io/card-symbols/W.svg" alt="{W}" loading="lazy" onerror="this.replaceWith(this.alt)"><img class="mana-sym" src="https://svgs.scryfall.io/card-symbols/B.svg" alt="{B}" loading="lazy" onerror="this.replaceWith(this.alt)"></td><td>ถ้าการตายของครีเจอร์ทำให้ความสามารถทริกเกอร์ของถาวรที่คุณควบคุมทำงาน ความสามารถนั้นทริกเกอร์เพิ่มอีกครั้ง โทเค็นครีเจอร์ที่คุณควบคุมมี vigilance และ lifelink</td></tr>
-            <tr><td><img class="rule-card-img" src="https://api.scryfall.com/cards/named?fuzzy=Delney%2C%20Streetwise%20Lookout&format=image&version=normal" alt="Delney, Streetwise Lookout" loading="lazy" onerror="this.remove()"><strong>Delney, Streetwise Lookout</strong><br>2/2</td><td><img class="mana-sym" src="https://svgs.scryfall.io/card-symbols/2.svg" alt="{2}" loading="lazy" onerror="this.replaceWith(this.alt)"><img class="mana-sym" src="https://svgs.scryfall.io/card-symbols/W.svg" alt="{W}" loading="lazy" onerror="this.replaceWith(this.alt)"></td><td>ครีเจอร์ที่คุณควบคุมพลังโจมตี 2 หรือน้อยกว่า บล็อกไม่ได้ด้วยครีเจอร์พลังโจมตี 3+ ถ้าความสามารถทริกเกอร์ของครีเจอร์ที่คุณควบคุมซึ่งมีพลังโจมตี 2 หรือน้อยกว่าทำงาน ความสามารถนั้นทริกเกอร์เพิ่มอีกครั้ง</td></tr>
-            <tr><td><img class="rule-card-img" src="https://api.scryfall.com/cards/named?fuzzy=Bastion%20of%20Remembrance&format=image&version=normal" alt="Bastion of Remembrance" loading="lazy" onerror="this.remove()"><strong>Bastion of Remembrance</strong><br>Enchantment</td><td><img class="mana-sym" src="https://svgs.scryfall.io/card-symbols/1.svg" alt="{1}" loading="lazy" onerror="this.replaceWith(this.alt)"><img class="mana-sym" src="https://svgs.scryfall.io/card-symbols/W.svg" alt="{W}" loading="lazy" onerror="this.replaceWith(this.alt)"><img class="mana-sym" src="https://svgs.scryfall.io/card-symbols/B.svg" alt="{B}" loading="lazy" onerror="this.replaceWith(this.alt)"></td><td>เมื่อเข้าสนาม สร้างโทเค็น 1/1 Human Soldier ขาว ทุกครั้งที่ครีเจอร์ที่คุณควบคุมตาย คู่ต่อสู้แต่ละคนเสียชีวิต 1 หน่วย คุณได้รับชีวิต 1 หน่วย</td></tr>
-          </tbody>
-        </table>
-
-        <h3>18.1 สถานการณ์: สังเวยครีเจอร์ 1/1 ผ่าน Viscera Seer</h3>
-        <p class="rule-note">คุณควบคุมการ์ดทั้งสามใบข้างต้น บวก Viscera Seer และครีเจอร์ 1/1 ตัวหนึ่ง</p>
-        <ol class="rule-steps">
-          <li>เปิดใช้ Viscera Seer สังเวยครีเจอร์ 1/1 — นี่คือ activated ability (CR 602) ต้นทุนคือการสังเวย จ่ายทันที → ครีเจอร์ตายตั้งแต่จุดนี้ ก่อน Viscera Seer จะขึ้น stack ด้วยซ้ำ</li>
-          <li>ครีเจอร์ตาย → <strong>Bastion of Remembrance ทริกเกอร์</strong> — แหล่งที่มา (source) ของทริกเกอร์นี้คือตัว Bastion เอง ซึ่งเป็น enchantment ไม่ใช่ครีเจอร์</li>
-          <li>แต่ <strong>Teysa เกี่ยว</strong> — เพราะ "การตายของครีเจอร์" ทำให้ Bastion ทริกเกอร์ ตามเงื่อนไขของ Teysa ตรงตัว → Bastion ทริกเกอร์<strong>เพิ่มอีกครั้ง</strong> รวมเป็น <strong>2 ครั้ง</strong></li>
-          <li><strong>Delney ไม่เกี่ยวเลย แม้ Teysa เองจะมี power 2 ก็ตาม</strong> — เหตุผลคือ Delney เช็คว่า "แหล่งที่มาของทริกเกอร์" เป็นครีเจอร์พลัง ≤2 หรือไม่ ไม่ได้เช็คว่ามีครีเจอร์พลัง ≤2 ตัวไหนเข้ามาเกี่ยวข้องบ้าง ตามคำวินิจฉัยอย่างเป็นทางการของการ์ดสไตล์นี้ (เทียบเคียง Panharmonicon) ความสามารถ "ทริกเกอร์เพิ่มอีกครั้ง" ของ Teysa <strong>ไม่ใช่ triggered ability ของ Teysa เอง แต่เป็น static ability</strong> ที่แค่สั่งให้ทริกเกอร์ตัวเดิม (ของ Bastion) ขึ้น stack 2 ชุดแทนที่จะเป็น 1 — สำเนาที่ 2 ที่เกิดขึ้นยังถือเป็น "ทริกเกอร์ของ Bastion" อยู่ดี ไม่ใช่ทริกเกอร์ใหม่จาก Teysa ดังนั้น power ของ Teysa จึงไม่มีผลอะไรกับ Delney เลย</li>
-          <li>ผลลัพธ์: คู่ต่อสู้แต่ละคนเสียชีวิต <strong>2</strong> หน่วย คุณได้รับชีวิต <strong>2</strong> หน่วย (ไม่ใช่ 1)</li>
-        </ol>
-
-        <h3>18.2 ถ้าครีเจอร์ที่สังเวยมี Afterlife/death trigger ของตัวเองด้วย</h3>
-        <p class="rule-note">สมมติครีเจอร์ที่สังเวยมีความสามารถ "เมื่อครีเจอร์นี้ตาย สร้างโทเค็น" ของตัวเอง (สไตล์ Afterlife) และมีพลังโจมตี ≤2</p>
-        <ul>
-          <li>ทริกเกอร์นั้นเข้าเงื่อนไขของ <strong>ทั้ง Teysa</strong> (เป็น death trigger) <strong>และ Delney</strong> (มาจากครีเจอร์พลัง ≤2 — เช็คค่าพลังจาก <em>ข้อมูลล่าสุดก่อนตาย</em>, CR 603.10 เรื่อง Last Known Information)</li>
-          <li>ตัวคูณไม่ได้ทวีคูณกัน (ไม่ใช่ 1×2×2=4) แต่ <strong>บวกกัน</strong>: ทริกเกอร์ปกติ 1 ครั้ง + Teysa เพิ่ม 1 + Delney เพิ่ม 1 = <strong>รวม 3 ครั้ง</strong> (หลักการเดียวกับ Elesh Norn + Panharmonicon ที่ไม่คูณกัน)</li>
-          <li>ทริกเกอร์ทั้งหมดที่คุณควบคุมพร้อมกัน คุณเป็นผู้เลือกลำดับการวางลง stack เอง (CR 603.3b)</li>
-        </ul>
-      </section>
-
-      <section class="rule-section" id="token-doubling-case-study">
-        <h2>19. กรณีศึกษา 2: ตัวคูณโทเค็น (Mondrak) vs ตัวคูณทริกเกอร์ (Teysa) ในเด็ค Aristocrats</h2>
-        <p class="rule-note">ต่อยอดจากหัวข้อ 18 — จุดที่ผู้เล่นสับสนบ่อยที่สุดคือ "ตัวคูณ" สองแบบนี้ไม่ใช่กลไกเดียวกัน และให้ผลลัพธ์ทางคณิตศาสตร์ต่างกัน</p>
-        <table>
-          <thead><tr><th>การ์ด</th><th>ต้นทุน</th><th>ข้อความ</th></tr></thead>
-          <tbody>
-            <tr><td><img class="rule-card-img" src="https://api.scryfall.com/cards/named?fuzzy=Mondrak%2C%20Glory%20Dominus&format=image&version=normal" alt="Mondrak, Glory Dominus" loading="lazy" onerror="this.remove()"><strong>Mondrak, Glory Dominus</strong><br>4/4</td><td>{2}{W}{W}</td><td>ถ้าจะมีโทเค็นหนึ่งตัวขึ้นไปเข้าสนามภายใต้การควบคุมของคุณ ให้สร้างโทเค็นนั้นเป็นสองเท่าแทน</td></tr>
-            <tr><td><img class="rule-card-img" src="https://api.scryfall.com/cards/named?fuzzy=Dictate%20of%20Erebos&format=image&version=normal" alt="Dictate of Erebos" loading="lazy" onerror="this.remove()"><strong>Dictate of Erebos</strong><br>Enchantment</td><td>{3}{B}{B}</td><td>Flash. ทุกครั้งที่ครีเจอร์ที่คุณควบคุมตาย คู่ต่อสู้แต่ละคนสังเวยครีเจอร์หนึ่งตัว</td></tr>
-          </tbody>
-        </table>
-
-        <h3>19.1 ทำไม Mondrak ถึง "คูณจริง" แต่ Delney ถึง "บวกเท่านั้น"</h3>
-        <ul>
-          <li><strong>Teysa / Delney / Panharmonicon</strong> เป็นเอฟเฟกต์ประเภท <em>"ความสามารถนี้ทริกเกอร์เพิ่มอีกครั้ง"</em> — มันเพิ่มจำนวนครั้งที่ตัว<strong>ทริกเกอร์</strong>ขึ้น stack เท่านั้น กฎการซ้อนทับของเอฟเฟกต์ประเภทนี้ (เทียบเคียงคำวินิจฉัยของ Panharmonicon/Strionic Resonator) คือ <strong>บวกทีละ 1</strong> ต่อตัวคูณหนึ่งใบ ไม่ทวีคูณกันเอง</li>
-          <li><strong>Mondrak</strong> เป็นเอฟเฟกต์ทดแทน (replacement effect) คนละชนิด — มันไม่แตะต้องทริกเกอร์เลย แต่ดักจับ<strong>เหตุการณ์การสร้างโทเค็น</strong>ทุกครั้งที่เกิดขึ้น แล้วเปลี่ยนจำนวนโทเค็นที่ถูกสร้างในเหตุการณ์นั้นเป็นสองเท่า (CR 614, 616)</li>
-          <li>เพราะเป็นคนละกลไก การซ้อนกันของทั้งสองแบบจึง <strong>คูณกันจริง</strong> ไม่ใช่บวกกัน</li>
-        </ul>
-
-        <h3>19.2 ตัวอย่างคำนวณ: ครีเจอร์ Afterlife 2 ตาย ขณะมี Teysa + Mondrak</h3>
-        <p class="rule-note">Afterlife 2: "เมื่อครีเจอร์นี้ตาย สร้างโทเค็น Spirit ขาว/ดำ 1/1 มีบินได้ 2 ตัว"</p>
-        <ol class="rule-steps">
-          <li>ครีเจอร์ตาย → ความสามารถ Afterlife ทริกเกอร์ 1 ครั้งตามปกติ แต่ Teysa ทำให้มันทริกเกอร์<strong>เพิ่มอีกครั้ง</strong> รวมเป็น <strong>2 อินสแตนซ์บน stack</strong> (เหมือนหัวข้อ 18 — บวก ไม่คูณ)</li>
-          <li>แต่ละอินสแตนซ์ resolve แยกกัน โดยแต่ละครั้งพยายามสร้างโทเค็น 2 ตัวตามข้อความเดิม</li>
-          <li><strong>Mondrak ดักเหตุการณ์การสร้างโทเค็นของแต่ละอินสแตนซ์แยกกัน</strong> — "จะสร้าง 2 ตัว" กลายเป็น "สร้าง 4 ตัว" ในแต่ละครั้ง</li>
-          <li>ผลรวม: 2 อินสแตนซ์ (จาก Teysa) × 4 ตัวต่ออินสแตนซ์ (จาก Mondrak คูณเป็นสองเท่าของ 2) = <strong>8 โทเค็น Spirit</strong> ไม่ใช่ 4 หรือ 6</li>
-        </ol>
-        <p class="rule-note">ถ้ามีตัวคูณโทเค็นสองใบ (เช่น Mondrak + Anointed Procession) ทั้งคู่จะคูณกันเองด้วย — 2 (จาก Teysa) × 2 (Mondrak) × 2 (Anointed Procession) = 16 ตัว เพราะตัวคูณโทเค็นแต่ละใบเป็นเอฟเฟกต์ทดแทนที่ apply ต่อกันได้ไม่จำกัด (CR 616.1 — ผู้เล่นเลือกลำดับ apply เอง แต่ผลลัพธ์สุดท้ายคูณกันเสมอไม่ว่าจะเรียงลำดับไหน)</p>
-
-        <h3>19.3 Dictate of Erebos กับ Teysa: สังเวยกี่ตัว</h3>
-        <ul>
-          <li>Dictate of Erebos เป็น "permanent you control" (enchantment) ไม่ใช่ครีเจอร์ — ความสามารถของมันทริกเกอร์จาก<strong>การตายของครีเจอร์อื่น</strong> ตรงเงื่อนไข Teysa ทุกประการ (เหมือน Bastion of Remembrance ในหัวข้อ 18)</li>
-          <li>มีครีเจอร์ตาย 1 ตัว → Dictate ทริกเกอร์ 2 ครั้ง (จาก Teysa) → คู่ต่อสู้แต่ละคน<strong>สังเวยครีเจอร์ 2 ตัว</strong> ไม่ใช่ 1 ตัว — มีประโยชน์มากในโต๊ะ multiplayer ที่ยังไม่มี Grave Pact effect อื่นซ้ำ</li>
-          <li>ข้อควรระวัง: ถ้าคู่ต่อสู้มีครีเจอร์เหลือไม่พอสังเวยครบ 2 ตัว ก็สังเวยเท่าที่มี ไม่มีผลข้างเคียงเพิ่ม (ไม่ใช่ดาเมจ ไม่มี "ถ้าสังเวยไม่ได้ ให้...")</li>
-        </ul>
-      </section>
-
-      <section class="rule-section" id="faq">
-        <h2>20. คำถามที่พบบ่อย / ความเข้าใจผิดที่พบบ่อย</h2>
-        <div class="faq-list">
-          <details class="faq-item">
-            <summary>Mana ability ผ่าน stack หรือเปล่า?</summary>
-            <p><strong>ไม่ผ่าน</strong> ความสามารถที่ผลิตมานา (mana ability, CR 605) resolve ทันทีโดยไม่ขึ้น stack และผู้เล่นอื่นไม่มีโอกาสตอบโต้ระหว่างนั้น ต่างจากความสามารถ activated ทั่วไปที่ต้องขึ้น stack และรอ priority วนครบก่อน resolve</p>
-          </details>
-          <details class="faq-item">
-            <summary>State-based action (SBA) เป็น "ทริกเกอร์" หรือเปล่า?</summary>
-            <p><strong>ไม่ใช่</strong> SBA (เช่น ครีเจอร์ toughness 0 ไปสุสาน, player life 0 แพ้) ไม่ขึ้น stack ไม่ใช่ triggered ability และไม่สามารถตอบโต้ (respond) ได้ ระบบจะตรวจสอบและจัดการ SBA ทุกครั้งที่ผู้เล่นจะได้ priority โดยอัตโนมัติ (CR 704) ส่วน "dies" trigger ที่มาจาก SBA ทำให้ครีเจอร์ตาย จะ<strong>ทริกเกอร์แยกต่างหาก</strong>หลังจาก SBA นั้นเกิดขึ้นแล้ว</p>
-          </details>
-          <details class="faq-item">
-            <summary>"Destroy", "Sacrifice", "ตาย (dies)" ต่างกันอย่างไร?</summary>
-            <p><strong>Destroy</strong> และ <strong>Sacrifice</strong> เป็นวิธีการที่ทำให้ครีเจอร์ไปสุสาน ส่วน <strong>"dies"</strong> คือคำเรียกเหตุการณ์ "ครีเจอร์ไปจากสนามสู่สุสาน" ไม่ว่าจะมาจากสาเหตุใด (destroy, sacrifice, SBA จาก toughness 0 หรือดาเมจถึงตาย) ยกเว้น exile หรือเปลี่ยนโซนด้วยวิธีอื่นที่ไม่ใช่ไปสุสาน — เอฟเฟกต์ป้องกัน destroy เช่น Indestructible <strong>ป้องกันไม่ได้</strong>กับ Sacrifice เพราะ sacrifice ไม่ใช่การ destroy</p>
-          </details>
-          <details class="faq-item">
-            <summary>ครีเจอร์มี Vigilance แต่ยังมี Summoning Sickness โจมตีได้ไหม?</summary>
-            <p><strong>ไม่ได้</strong> Vigilance แค่ทำให้ไม่ต้องแท็ปเวลาโจมตี ไม่เกี่ยวกับ Summoning Sickness เลย ครีเจอร์ที่เพิ่งเข้าสนามยังต้องรอจนควบคุมมันตั้งแต่ต้นเทิร์นของคุณ (หรือมี Haste) ถึงจะโจมตีหรือใช้ความสามารถที่มี {T}/{Q} ในต้นทุนได้</p>
-          </details>
-          <details class="faq-item">
-            <summary>กฎเลเจนดารี (Legend Rule) เช็คตอนไหน และเลือกทิ้งใบไหนได้ไหม?</summary>
-            <p>เป็น SBA ที่เช็คตลอดเวลา — ถ้าคุณควบคุมถาวร legendary ชื่อเดียวกันมากกว่า 1 ใบพร้อมกัน <strong>คุณเป็นผู้เลือกเอง</strong>ว่าจะเก็บใบไหนไว้ ที่เหลือไปสุสานทั้งหมด (CR 704.5j) ไม่ใช่ใบล่าสุดที่เข้าสนามที่ต้องทิ้งเสมอไปตามที่หลายคนเข้าใจผิด</p>
-          </details>
-          <details class="faq-item">
-            <summary>"เมื่อเข้าสนาม" (ETB) กับ "เมื่อร่ายสเปลล์นี้" ต่างกันอย่างไร?</summary>
-            <p>ETB trigger (เช่น Afterlife's token, ส่วนใหญ่ของครีเจอร์) ทำงาน<strong>ทุกครั้ง</strong>ที่ถาวรเข้าสนาม ไม่ว่าจะมาจากการร่าย, ใส่มือแล้ว cheat เข้าสนาม, หรือ reanimate จากสุสาน ส่วน "เมื่อร่ายสเปลล์นี้" (cast trigger) ทำงานเฉพาะตอนร่ายจริงเท่านั้น เช่น Storm หรือ Prowess-adjacent triggers บางใบ — สับสนกันบ่อยเวลาประเมินว่าการ์ด reanimation จะได้ค่า ETB คืนมาหรือไม่ (โดยทั่วไปได้ เพราะ ETB ไม่สนวิธีที่เข้าสนาม)</p>
-          </details>
-        </div>
-      </section>
+<section class="rule-section" id="counters">
+  <h2>8. เคาน์เตอร์ (Counters)</h2>
+  <h3>8.1 เคาน์เตอร์คืออะไร</h3>
+  <ul>
+    <li>เคาน์เตอร์ (counter) คือเครื่องหมายที่วางบนถาวรหรือผู้เล่น เพื่อบันทึกสถานะบางอย่าง — ไม่ใช่การ์ดหรือโทเค็น</li>
+    <li>ที่พบบ่อยที่สุดคือ <strong>+1/+1</strong> และ <strong>-1/-1</strong> ซึ่งเปลี่ยนพลัง/ความอึดของครีเจอร์โดยตรง (คำนวณใน Layer 7c แบบสะสม ดูหัวข้อ <a href="rules-mechanics.html#edge-cases">ระบบ Layer</a> ในหน้ากลไก)</li>
+    <li>ประเภทอื่นที่พบบ่อย: <strong>Loyalty counter</strong> (บน planeswalker), <strong>Charge counter</strong> (ใช้เป็นต้นทุนของบางความสามารถ), <strong>Poison counter</strong> และ <strong>Energy counter</strong> (อยู่บนตัวผู้เล่นเอง ไม่ใช่บนถาวร)</li>
+    <li>เคาน์เตอร์ไม่ติดตามการ์ด — ถ้าถาวรออกจากสนามแล้วกลับเข้ามาใหม่ (เช่นโดน blink/exile-and-return) มันเป็น "วัตถุใหม่" เสมอ เคาน์เตอร์ทั้งหมดที่เคยมีจะหายไป ไม่ติดกลับมาด้วย</li>
+  </ul>
+  <h3>8.2 กฎ SBA: +1/+1 กับ -1/-1 หักล้างกันเอง (CR 704.5q)</h3>
+  <ul>
+    <li>ถ้าถาวรหนึ่งใบมีทั้งเคาน์เตอร์ +1/+1 และ -1/-1 พร้อมกัน ระบบจะทำ State-Based Action ทันที: นำเคาน์เตอร์ทั้งสองชนิดออกเป็นคู่ๆ (1 ใบ +1/+1 หัก 1 ใบ -1/-1) จนเหลือเคาน์เตอร์แค่ชนิดเดียว</li>
+    <li>เช่น ครีเจอร์ที่มี +1/+1 อยู่ 3 อัน แล้วโดนเอฟเฟกต์ใส่ -1/-1 เข้ามา 5 อัน → SBA หักออก 3 คู่ทันที เหลือ -1/-1 อยู่ 2 อัน (ไม่ใช่มีทั้งสองแบบค้างอยู่พร้อมกัน)</li>
+    <li>ผลคือถาวรหนึ่งใบจะไม่มีวันแสดงทั้ง +1/+1 และ -1/-1 พร้อมกันในสถานะที่เสถียร (หลัง SBA เช็คแล้วเสมอ)</li>
+  </ul>
+  <h3>8.3 Proliferate</h3>
+  <p>Proliferate ให้เลือกถาวรหรือผู้เล่นใดๆ ที่มีเคาน์เตอร์อยู่แล้วอย่างน้อย 1 ชนิด แล้วเพิ่มเคาน์เตอร์ชนิดนั้นอีก 1 อันให้แต่ละอันที่เลือก (เลือกได้หลายเป้าหมายพร้อมกัน แต่ต้องมีเคาน์เตอร์อยู่ก่อนแล้วเท่านั้น — สร้างเคาน์เตอร์ชนิดใหม่ให้ไม่ได้)</p>
+</section>
 
       </article>
 
       <p class="rules-source">เอกสารนี้เป็นการอ้างอิงอย่างย่อ แปลและเรียบเรียงเป็นภาษาไทยเพื่อการศึกษา สำหรับกฎ Comprehensive Rules ฉบับเต็มและกฎ Commander อย่างเป็นทางการ โปรดดูที่ <a href="https://magic.wizards.com/en/rules" target="_blank" rel="noopener">magic.wizards.com/en/rules</a> และ <a href="https://mtgcommander.net/index.php/rules/" target="_blank" rel="noopener">mtgcommander.net</a></p>
+
+      <nav class="rules-page-nav" aria-label="หน้ากฎถัดไป/ก่อนหน้า">
+        <span></span>
+        <a class="rp-next" href="rules-mechanics.html">กลไกและเอฟเฟกต์</a>
+      </nav>
 
       <p class="back-to-toc"><a href="index.html">← กลับสู่ห้องสมุดเรื่องราว</a></p>
     </div>

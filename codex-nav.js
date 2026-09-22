@@ -192,6 +192,55 @@
     });
   }
 
+  var THEME_KEY = "mtg-theme";
+
+  function getStoredTheme() {
+    try { return localStorage.getItem(THEME_KEY); } catch (e) { return null; }
+  }
+  function setStoredTheme(t) {
+    try { localStorage.setItem(THEME_KEY, t); } catch (e) {}
+  }
+  function systemPrefersDark() {
+    return !!(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches);
+  }
+  function effectiveTheme() {
+    var stored = getStoredTheme();
+    if (stored === "light" || stored === "dark") return stored;
+    return systemPrefersDark() ? "dark" : "light";
+  }
+  function sunIcon() {
+    return '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.5v2.4M12 19.1v2.4M4.2 4.2l1.7 1.7M18.1 18.1l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.2 19.8l1.7-1.7M18.1 5.9l1.7-1.7"></path></svg>';
+  }
+  function moonIcon() {
+    return '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 14.3A8.5 8.5 0 1 1 9.7 3.5a7 7 0 0 0 10.8 10.8z"></path></svg>';
+  }
+  function themeToggleIcon(isDark) {
+    // showing the sun in dark mode means "tap to go light"; showing the moon in light mode means "tap to go dark"
+    return isDark ? sunIcon() : moonIcon();
+  }
+  function renderThemeToggle() {
+    var isDark = effectiveTheme() === "dark";
+    var btnHtml =
+      '<button type="button" class="theme-toggle" aria-label="สลับโหมดสว่าง/มืด" title="สลับโหมดสว่าง/มืด">' +
+      themeToggleIcon(isDark) + "</button>";
+
+    var brand = document.querySelector(".sidebar-brand");
+    if (brand) brand.insertAdjacentHTML("beforeend", btnHtml);
+    var topbar = document.querySelector(".mobile-topbar");
+    if (topbar) topbar.insertAdjacentHTML("beforeend", btnHtml);
+
+    document.querySelectorAll(".theme-toggle").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var next = effectiveTheme() === "dark" ? "light" : "dark";
+        document.documentElement.setAttribute("data-theme", next);
+        setStoredTheme(next);
+        document.querySelectorAll(".theme-toggle").forEach(function (b) {
+          b.innerHTML = themeToggleIcon(next === "dark");
+        });
+      });
+    });
+  }
+
   function escapeHtml(s) {
     return String(s).replace(/[&<>"']/g, function (c) {
       return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
@@ -199,6 +248,7 @@
   }
 
   document.addEventListener("DOMContentLoaded", function () {
+    renderThemeToggle();
     renderShortcuts();
     renderSidebar("");
 

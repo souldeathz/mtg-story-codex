@@ -19,7 +19,7 @@
   padding:7px 15px;cursor:pointer;transition:color .15s,border-color .15s,background .15s;
 }
 .faction-btn:hover{color:var(--ink);border-color:var(--rule-strong);}
-.faction-btn.is-active{color:#fff;background:var(--accent);border-color:var(--accent);font-weight:600;}
+.faction-btn.is-active{color:var(--accent-ink);background:var(--accent);border-color:var(--accent);font-weight:600;}
 
 /* ---------- character cards (reuse .vol-card / .char-card) ---------- */
 
@@ -49,7 +49,7 @@
   display:flex;align-items:center;justify-content:center;
   font-family:"Fraunces",serif;font-size:14px;color:var(--ink-muted);
 }
-.ep-item.is-open .ep-marker{color:#fff;background:var(--accent);border-color:var(--accent);}
+.ep-item.is-open .ep-marker{color:var(--accent-ink);background:var(--accent);border-color:var(--accent);}
 .ep-item.is-final .ep-marker{color:var(--accent);background:var(--accent-soft);border-color:var(--accent);}
 
 .ep-toggle{
